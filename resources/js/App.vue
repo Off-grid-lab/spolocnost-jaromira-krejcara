@@ -18,7 +18,7 @@
       </div>
       <div class="flex justify-between items-end">
         <div><a class="pointer-events-auto hover:underline" href="#">Jaromír Krejcar<br>LD Machnáč</a></div>
-        <div><router-link class="pointer-events-auto hover:underline" to="/faq">FAQ</router-link></div>
+        <div><router-link class="pointer-events-auto hover:underline" :to="{ name: 'Faq', params: { locale: $i18n.locale } }">FAQ</router-link></div>
       </div>
   </div>
 

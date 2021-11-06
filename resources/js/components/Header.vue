@@ -7,13 +7,12 @@
               <div class="border-current border-t-2 relative bottom-3 w-8"></div>
           </button>
           <div class="ml-4">
-              <router-link class="hover:underline" to="/">SJK</router-link>
+              <router-link class="hover:underline" :to="{ name: 'Home', params: { locale: $i18n.locale } }">SJK</router-link>
           </div>
       </div>
       <div class="hidden lg:flex justify-between pl-2 w-1/2">
           <div>
-              <a class="hover:underline px-1" href="#">SK</a>
-              <a class="hover:underline px-1" href="#">EN</a>
+              <span v-for="locale in ['sk', 'en']" :key="`locale_${locale}`" :class="$i18n.locale === locale ? 'underline' : ''" class="cursor-pointer hover:underline px-1" @click="switchLocale(locale)">{{ locale }}</span>
           </div>
       </div>
       <div class="lg:hidden text-blue"><a class="hover:underline" href="#">Aktuality</a></div>
@@ -22,6 +21,15 @@
 
 <script>
 export default {
-    emits: ['showMenu']
+    emits: ['showMenu'],
+    methods: {
+        switchLocale(locale) {
+            if (this.$i18n.locale !== locale) {
+                this.$i18n.locale = locale;
+                const to = this.$router.resolve({ params: { locale } })
+                this.$router.push(to)
+            }
+        }
+    }
 }
 </script>

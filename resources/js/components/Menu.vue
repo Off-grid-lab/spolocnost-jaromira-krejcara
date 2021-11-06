@@ -2,7 +2,7 @@
   <div class="bg-blue flex flex-col justify-between fixed inset-0 p-4 text-black lg:w-1/2 z-[90]" v-show="shown">
       <ul>
           <li><button role="button" @click="$emit('close')">X</button></li>
-          <li><router-link class="hover:underline uppercase" to="/">SJK</router-link></li>
+          <li><router-link class="hover:underline uppercase" :to="{ name: 'Home', params: { locale: $i18n.locale } }">SJK</router-link></li>
           <li><a class="hover:underline uppercase" href="#">Kto sme</a></li>
           <li><a class="hover:underline uppercase" href="#">Zámer</a></li>
           <li><a class="hover:underline uppercase" href="#">Jaromír Krejcar</a></li>

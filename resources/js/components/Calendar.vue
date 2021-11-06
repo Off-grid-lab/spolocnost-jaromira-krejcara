@@ -6,7 +6,7 @@
             </div>
 
             <div class="flex flex-wrap -mx-1 mt-24">
-                <router-link class="block group hover:text-blue px-1 text-sm w-full lg:w-1/4" :to="`/news/${i}`" v-for="i in 20" :key="`news_${i}`">
+                <router-link class="block group hover:text-blue px-1 text-sm w-full lg:w-1/4" :to="{ name: 'NewsDetail', params: { locale: $i18n.locale, id: i } }" v-for="i in 20" :key="`news_${i}`">
                     <div>23/7/19</div>
                     <img src="https://via.placeholder.com/300" class="block object-cover lg:opacity-0 group-hover:opacity-100 w-full" style="aspect-ratio: 16/9;">
                     <div class="truncate uppercase">NÁZOV, KTORÝ SA NEZMESTÍ</div>
