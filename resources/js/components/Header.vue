@@ -7,7 +7,7 @@
               <div class="border-current border-t-2 relative bottom-3 w-8"></div>
           </button>
           <div class="ml-4">
-              <router-link class="hover:underline" :to="{ name: 'Home', params: { locale: $i18n.locale } }">SJK</router-link>
+              <router-link class="hover:underline" :to="$i18nRoute({ name: 'Home' })">SJK</router-link>
           </div>
       </div>
       <div class="hidden lg:flex justify-between pl-2 w-1/2">

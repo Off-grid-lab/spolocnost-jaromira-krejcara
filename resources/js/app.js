@@ -44,7 +44,15 @@ const app = createApp(App)
     .use(i18n)
     .use(router)
     .component('Footer', Footer)
-    .mount('#app')
+
+app.config.globalProperties.$i18nRoute = function (to) {
+    return {
+        ...to,
+        params: { locale: this.$i18n.locale, ...to.params }
+    }
+}
+
+app.mount('#app')
 
 router.beforeEach((to, from, next) => {
     app.menuShown = false
