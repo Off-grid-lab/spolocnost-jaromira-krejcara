@@ -1,7 +1,7 @@
 <template>
     <div>
-        <img src="https://via.placeholder.com/1000" class="block h-screen object-cover w-full">
-        <img src="https://via.placeholder.com/1000" class="block h-screen object-cover w-full">
+        <img src="https://via.placeholder.com/1000" class="block h-[calc(100vh-3.5rem)] object-cover w-full">
+        <img src="https://via.placeholder.com/1000" class="block h-[calc(100vh-3.5rem)] object-cover w-full">
         <div class="bg-linen text-black">
             <section>
                 <h2 class="pb-4 pt-8 text-4xl lg:text-8xl text-center uppercase">Architektúra a&nbsp;život na pulze času</h2>
