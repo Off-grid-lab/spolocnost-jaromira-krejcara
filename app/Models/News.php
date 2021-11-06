@@ -4,11 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Translatable\HasTranslations;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\Sluggable;
+use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\SluggableScopeHelpers;
 
 class News extends Model
 {
-    use HasFactory, HasTranslations;
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
+    use HasFactory, HasTranslations, Sluggable, SluggableScopeHelpers;
 
     public $translatable = [
         'title',
@@ -18,11 +21,24 @@ class News extends Model
     ];
 
     public $fillable = [
+        'title',
+        'slug',
+        'perex',
+        'content',
         'datetime',
     ];
 
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title',
+            ]
+        ];
     }
 }
