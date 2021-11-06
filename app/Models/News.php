@@ -20,4 +20,9 @@ class News extends Model
     public $fillable = [
         'datetime',
     ];
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

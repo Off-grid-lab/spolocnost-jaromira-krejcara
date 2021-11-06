@@ -2,43 +2,43 @@
   <Header @showMenu="menuShown = true" @showCalendar="calendarShown = !calendarShown" />
 
   <div class="lg:flex h-screen">
-      <div class="overflow-y-scroll w-full lg:w-1/2" @scroll="scroll" :class="calendarShown ? 'hidden lg:block' : ''">
-        <div class="flex flex-col items-stretch h-full">
-          <div class="flex-grow mt-14">
-            <router-view />
-          </div>
-          <div class="bg-blue pb-6 px-4 pt-4 relative text-black z-[40]">
-              <Footer />
-          </div>
+    <div class="overflow-y-scroll w-full lg:w-1/2" @scroll="scroll" :class="calendarShown ? 'hidden lg:block' : ''">
+      <div class="flex flex-col items-stretch h-full">
+        <div class="flex-grow mt-14">
+          <router-view />
+        </div>
+        <div class="bg-blue pb-6 px-4 pt-4 relative text-black z-[40]">
+          <Footer />
         </div>
       </div>
-      <div class="overflow-y-scroll w-full lg:w-1/2" @scroll="scroll" :class="!calendarShown ? 'hidden lg:block' : ''">
-        <div class="flex flex-col items-stretch h-full">
-            <div class="flex-grow px-4 mt-14">
-              <Calendar />
-            </div>
-            <div class="bg-linen pb-6 px-4 pt-4 relative text-black z-[20]">
-                <Footer />
-            </div>
+    </div>
+    <div class="overflow-y-scroll w-full lg:w-1/2" @scroll="scroll" :class="!calendarShown ? 'hidden lg:block' : ''">
+      <div class="flex flex-col items-stretch h-full">
+        <div class="flex-grow mt-14">
+          <Calendar />
+        </div>
+        <div class="bg-linen pb-6 px-4 pt-4 relative text-black z-[20]">
+          <Footer />
         </div>
       </div>
+    </div>
   </div>
 
   <div class="fixed hidden lg:flex lg:flex-col inset-0 justify-between p-4 pointer-events-none text-blue uppercase w-full z-[30]">
-      <div class="text-right">
-          <a class="pointer-events-auto	hover:underline" href="#">Zámer</a><br>
-          <a class="pointer-events-auto	hover:underline" href="#">Kto sme</a>
-      </div>
-      <div class="flex justify-between items-end">
-        <div><a class="pointer-events-auto hover:underline" href="#">Jaromír Krejcar<br>LD Machnáč</a></div>
-        <div><router-link class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Faq' })">FAQ</router-link></div>
-      </div>
+    <div class="text-right">
+      <a class="pointer-events-auto hover:underline" href="#">Zámer</a><br>
+      <a class="pointer-events-auto hover:underline" href="#">Kto sme</a>
+    </div>
+    <div class="flex justify-between items-end">
+      <div><a class="pointer-events-auto hover:underline" href="#">Jaromír Krejcar<br>LD Machnáč</a></div>
+      <div><router-link class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Faq' })">FAQ</router-link></div>
+    </div>
   </div>
 
   <Menu :shown="menuShown" @close="menuShown = false" />
 
   <div v-show="$route.name == 'Home'" :class="claimShown ? 'top-1/2' : '-top-1/2'" class="duration-1000 fixed leading-none left-1/2 pointer-events-none text-[12vw] lg:text-[8vw] text-blue text-center transform transition-all -translate-x-1/2 -translate-y-1/2 uppercase z-[80]">
-      Vyvlastnime<br>Machnáč!
+    Vyvlastnime<br>Machnáč!
   </div>
 </template>
 

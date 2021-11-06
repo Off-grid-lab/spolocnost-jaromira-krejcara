@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/news', function (Request $request) {
-    return News::orderByDesc('datetime')->paginate();
+    return News::orderByDesc('datetime')->with('tags')->paginate();
 });
 
 Route::get('/news/{id}', function (Request $request, $id) {
