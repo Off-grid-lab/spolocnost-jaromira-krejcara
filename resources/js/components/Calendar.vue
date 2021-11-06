@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-wrap max-w-lg">
-        <button @click="selectedTag = selectedTag !== i ? i : null" :class="selectedTag == i ? 'bg-blue text-black' : ''" class="border-2 border-blue m-1 px-3 rounded-full text-blue" v-for="i in 10" :key="`tag_${i}`">Tag</button>
+        <button @click="selectedTag = selectedTag !== i ? i : null" :class="selectedTag == i ? 'bg-blue text-black' : ''" class="border-2 border-blue m-1 px-3 rounded-full text-blue" v-for="(tag, i) in tags" :key="`tag_${i}`">{{ tag.title[$i18n.locale] }}</button>
     </div>
 
     <div class="flex flex-wrap -mx-1 mt-24">
@@ -19,9 +19,13 @@ export default {
         return {
             selectedTag: null,
             news: [],
+            tags: [],
         }
     },
     mounted() {
+        axios.get('/api/tags').then(({data}) => {
+            this.tags = data
+        })
         axios.get('/api/news').then(({data}) => {
             this.news = data.data
         })

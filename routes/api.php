@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\News;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,8 @@ Route::get('/news', function (Request $request) {
 
 Route::get('/news/{id}', function (Request $request, $id) {
     return News::findOrfail($id);
+});
+
+Route::get('/tags', function (Request $request) {
+    return Tag::orderByDesc('title')->get();
 });
