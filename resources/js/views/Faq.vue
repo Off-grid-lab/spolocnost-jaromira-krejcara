@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-linen text-black">
+    <div class="bg-linen h-full text-black">
         <div class="border-b-2 last:border-0 border-black p-4" v-for="i in 10" :key="`faq_${i}`">
             <h3 @click="selected = selected !== i ? i : null" class="cursor-pointer text-center text-lg uppercase">Kto stojí za Spoločnosťou Jaromíra Krejcara?</h3>
         

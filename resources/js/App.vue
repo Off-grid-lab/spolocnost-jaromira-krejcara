@@ -2,7 +2,7 @@
   <Header @showMenu="menuShown = true" @showCalendar="calendarShown = !calendarShown" />
 
   <div class="lg:flex h-screen">
-      <div class="overflow-y-scroll w-full lg:w-1/2" @scroll="scroll" :class="!calendarShown ? 'hidden lg:block' : ''">
+      <div class="overflow-y-scroll w-full lg:w-1/2" @scroll="scroll" :class="calendarShown ? 'hidden lg:block' : ''">
         <div class="flex flex-col items-stretch h-full">
           <div class="flex-grow mt-14">
             <router-view />
@@ -12,7 +12,7 @@
           </div>
         </div>
       </div>
-      <div class="overflow-y-scroll w-full lg:w-1/2" @scroll="scroll" :class="calendarShown ? 'hidden lg:block' : ''">
+      <div class="overflow-y-scroll w-full lg:w-1/2" @scroll="scroll" :class="!calendarShown ? 'hidden lg:block' : ''">
         <div class="flex flex-col items-stretch h-full">
             <div class="flex-grow px-4 mt-14">
               <Calendar />

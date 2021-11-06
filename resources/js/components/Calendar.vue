@@ -4,7 +4,7 @@
     </div>
 
     <div class="flex flex-wrap -mx-1 mt-24">
-        <router-link class="block group hover:text-blue px-1 text-sm w-full lg:w-1/4" :to="$i18nRoute({ name: 'NewsDetail', params: { id: article.id } })" v-for="(article, i) in news" :key="`news_${i}`">
+        <router-link :class="current(article) ? 'text-blue' : ''" class="block group hover:text-blue px-1 text-sm w-full lg:w-1/4" :to="$i18nRoute({ name: 'NewsDetail', params: { id: article.id } })" v-for="(article, i) in news" :key="`news_${i}`">
             <div>{{ $formatDate(article.datetime) }}</div>
             <img src="https://via.placeholder.com/300" class="block object-cover lg:opacity-0 group-hover:opacity-100 w-full" style="aspect-ratio: 16/9;">
             <div class="truncate uppercase">{{ article.title[$i18n.locale] }}</div>
@@ -29,6 +29,11 @@ export default {
         axios.get('/api/news').then(({data}) => {
             this.news = data.data
         })
+    },
+    methods: {
+        current(article) {
+            return this.$route.name === 'NewsDetail' && this.$route.params.id == article.id
+        }
     }
 }
 </script>
