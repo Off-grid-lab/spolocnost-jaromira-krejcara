@@ -19,6 +19,8 @@ const i18n = createI18n({
 const router = createRouter({
     history: createWebHistory(),
     routes: [{
+        path: '/', redirect: '/sk'
+    }, {
         path: '/:locale',
         component: {
             template: '<router-view></router-view>'

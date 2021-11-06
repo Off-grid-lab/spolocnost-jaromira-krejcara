@@ -10,26 +10,17 @@
               <router-link class="hover:underline" :to="$i18nRoute({ name: 'Home' })">SJK</router-link>
           </div>
       </div>
-      <div class="hidden lg:flex justify-between pl-2 w-1/2">
-          <div>
-              <span v-for="locale in ['sk', 'en']" :key="`locale_${locale}`" :class="$i18n.locale === locale ? 'underline' : ''" class="cursor-pointer hover:underline px-1" @click="switchLocale(locale)">{{ locale }}</span>
-          </div>
+      <div class="hidden lg:flex justify-between pl-4 w-1/2">
+        <LocaleSwitcher />
       </div>
       <div class="lg:hidden text-blue"><a class="hover:underline" href="#">Aktuality</a></div>
   </div>
 </template>
 
 <script>
+import LocaleSwitcher from './LocaleSwitcher.vue'
 export default {
-    emits: ['showMenu'],
-    methods: {
-        switchLocale(locale) {
-            if (this.$i18n.locale !== locale) {
-                this.$i18n.locale = locale;
-                const to = this.$router.resolve({ params: { locale } })
-                this.$router.push(to)
-            }
-        }
-    }
+    components: { LocaleSwitcher },
+    emits: ['showMenu']
 }
 </script>
