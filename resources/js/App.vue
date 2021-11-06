@@ -42,9 +42,16 @@ export default {
       claimShown: true,
     }
   },
+  created() {
+    window.addEventListener('scroll', this.scroll)
+  },
+  unmounted() {
+    window.removeEventListener('scroll', this.scroll)
+  },
   methods: {
     scroll(e) {
-      if (e.target.scrollTop > 200) {
+      const top = e.target === document ? window.scrollY : e.target.scrollTop
+      if (top > 200) {
         this.claimShown = false
       }
     },
