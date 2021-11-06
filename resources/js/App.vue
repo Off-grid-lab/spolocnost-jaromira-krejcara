@@ -1,13 +1,26 @@
 <template>
-  <Header @showMenu="menuShown = true" />
+  <Header @showMenu="menuShown = true" @showCalendar="calendarShown = !calendarShown" />
 
   <div class="lg:flex h-screen">
-      <div class="overflow-y-scroll w-full lg:w-1/2" @scroll="scroll">
-        <router-view />
+      <div class="overflow-y-scroll w-full lg:w-1/2" @scroll="scroll" :class="!calendarShown ? 'hidden lg:block' : ''">
+        <div class="flex flex-col items-stretch h-full">
+          <div class="flex-grow mt-14">
+            <router-view />
+          </div>
+          <div class="bg-blue pb-6 px-4 pt-4 relative text-black z-[40]">
+              <Footer />
+          </div>
+        </div>
       </div>
-
-      <div class="hidden lg:block overflow-y-scroll w-full lg:w-1/2" @scroll="scroll">
-        <Calendar />
+      <div class="overflow-y-scroll w-full lg:w-1/2" @scroll="scroll" :class="calendarShown ? 'hidden lg:block' : ''">
+        <div class="flex flex-col items-stretch h-full">
+            <div class="flex-grow px-4 mt-14">
+              <Calendar />
+            </div>
+            <div class="bg-linen pb-6 px-4 pt-4 relative text-black z-[20]">
+                <Footer />
+            </div>
+        </div>
       </div>
   </div>
 
@@ -40,6 +53,7 @@ export default {
     return {
       menuShown: false,
       claimShown: true,
+      calendarShown: false,
     }
   },
   created() {

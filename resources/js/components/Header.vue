@@ -13,7 +13,7 @@
       <div class="hidden lg:flex justify-between pl-4 w-1/2">
         <LocaleSwitcher />
       </div>
-      <div class="lg:hidden text-blue"><a class="hover:underline" href="#">Aktuality</a></div>
+      <div class="lg:hidden text-blue"><span class="cursor-pointer normal-case hover:underline" @click="$emit('showCalendar')">Aktuality</span></div>
   </div>
 </template>
 
@@ -21,6 +21,6 @@
 import LocaleSwitcher from './LocaleSwitcher.vue'
 export default {
     components: { LocaleSwitcher },
-    emits: ['showMenu']
+    emits: ['showMenu', 'showCalendar']
 }
 </script>

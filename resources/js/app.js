@@ -54,6 +54,11 @@ app.config.globalProperties.$i18nRoute = function (to) {
     }
 }
 
+app.config.globalProperties.$formatDate = function (string) {
+    const date = new Date(string)
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.toLocaleDateString(undefined, {year: '2-digit'})}`
+}
+
 app.mount('#app')
 
 router.beforeEach((to, from, next) => {

@@ -32,10 +32,6 @@
                     <p class="mt-3">Nam ipsum nibh, accumsan sed nunc in, facilisis consectetur lectus. Nulla convallis faucibus sagittis. Integer vestibulum ex nec tortor dapibus pharetra. Nulla finibus egestas sem, vel bibendum metus elementum luctus. Cras euismod nunc sed mattis iaculis. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Duis aliquet lacus nisl, ut pellentesque quam feugiat vitae. Suspendisse sapien dolor, malesuada eu tempus non, imperdiet eu dui. Maecenas molestie tortor lacus, a pretium sapien placerat in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum odio ante, imperdiet a scelerisque id, molestie vel orci.</p>
                 </div>
             </section>
-
-            <div class="bg-blue pb-6 px-4 pt-4 relative text-black z-[40]">
-                <Footer />
-            </div>
         </div>
     </div>
 </template>
