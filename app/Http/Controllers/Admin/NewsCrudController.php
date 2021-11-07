@@ -14,8 +14,8 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 class NewsCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation { store as traitStore; }
+    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitUpdate; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
 
     /**
@@ -39,9 +39,6 @@ class NewsCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('title');
-        CRUD::column('slug');
-        CRUD::column('perex');
-        CRUD::column('content');
         CRUD::column('datetime');
 
         if (!$this->crud->getRequest()->has('order')) {
@@ -70,9 +67,14 @@ class NewsCrudController extends CrudController
         CRUD::field('content')->type('textarea');
         CRUD::field('datetime')->type('datetime');
         $this->crud->addField([
-            'allows_null' => false,
             'name' => 'tags',
             'type' => 'select2_multiple',
+            'allows_null' => false,
+        ]);
+        $this->crud->addField([
+            'name' => 'images',
+            'type' => 'media-library-collection',
+            'rules' => 'mimes:jpeg,png',
         ]);
 
         /**
@@ -91,5 +93,21 @@ class NewsCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    public function update() {
+        $response = $this->traitUpdate();
+        $this->crud->entry
+            ->syncFromMediaLibraryRequest(request()->images)
+            ->toMediaCollection('images');
+        return $response;
+    }
+
+    public function store() {
+        $response = $this->traitStore();
+        $this->crud->entry
+            ->syncFromMediaLibraryRequest(request()->images)
+            ->toMediaCollection('images');
+        return $response;
     }
 }
