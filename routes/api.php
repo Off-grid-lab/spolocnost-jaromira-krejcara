@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Faq;
 use App\Models\News;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -26,4 +27,8 @@ Route::get('/news/{id}', function (Request $request, $id) {
 
 Route::get('/tags', function (Request $request) {
     return Tag::orderByDesc('title')->get();
+});
+
+Route::get('/faq', function (Request $request) {
+    return Faq::orderBy('lft')->get();
 });
