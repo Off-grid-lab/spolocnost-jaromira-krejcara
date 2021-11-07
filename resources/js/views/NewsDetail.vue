@@ -20,18 +20,18 @@ export default {
         }
     },
     mounted() {
-        this.fetch()
+        this.fetch(this.$route)
     },
     methods: {
-        fetch() {
-            axios.get(`/api/news/${this.$route.params.id}`).then(({data}) => {
+        fetch(route) {
+            axios.get(`/api/news/${route.params.id}`).then(({data}) => {
                 this.news = data
             })
         }
     },
     beforeRouteUpdate(to, from, next) {
         next()
-        this.fetch()
+        this.fetch(to)
     }
 }
 </script>
