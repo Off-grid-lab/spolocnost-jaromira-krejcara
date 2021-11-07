@@ -60,8 +60,3 @@ app.config.globalProperties.$formatDate = function (string) {
 }
 
 app.mount('#app')
-
-router.beforeEach((to, from, next) => {
-    app.menuShown = false
-    next()
-})

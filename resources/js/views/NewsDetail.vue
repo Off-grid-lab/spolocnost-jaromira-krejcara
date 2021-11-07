@@ -5,7 +5,6 @@
         </div>
         <div class="text-center">1/4</div>
 
-
         <div class="max-w-lg px-4">
             <h3 class="mt-4 text-2xl">{{ news.title[$i18n.locale] }}</h3>
             <p>{{ news.content[$i18n.locale] }}</p>
@@ -21,9 +20,18 @@ export default {
         }
     },
     mounted() {
-        axios.get(`/api/news/${this.$route.params.id}`).then(({data}) => {
-            this.news = data
-        })
+        this.fetch()
+    },
+    methods: {
+        fetch() {
+            axios.get(`/api/news/${this.$route.params.id}`).then(({data}) => {
+                this.news = data
+            })
+        }
+    },
+    beforeRouteUpdate(to, from, next) {
+        next()
+        this.fetch()
     }
 }
 </script>

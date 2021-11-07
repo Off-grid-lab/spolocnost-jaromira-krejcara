@@ -2,7 +2,7 @@
   <Header @showMenu="menuShown = true" @showCalendar="calendarShown = !calendarShown" />
 
   <div class="lg:flex h-[calc(100vh-3.5rem)]">
-    <div class="overflow-y-auto w-full lg:w-1/2" @scroll="scroll" :class="calendarShown ? 'hidden lg:block' : ''">
+    <div class="overflow-y-auto w-full lg:w-1/2" @scroll="scroll" :class="calendarShown ? 'hidden lg:block' : ''" ref="routerView">
       <div class="flex flex-col items-stretch h-full">
         <div class="flex-grow">
           <router-view />
@@ -57,10 +57,10 @@ export default {
     }
   },
   created() {
-    window.addEventListener('scroll', this.scroll)
+    window.addEventListener('scroll', this.scroll, { passive: true })
   },
   unmounted() {
-    window.removeEventListener('scroll', this.scroll)
+    window.removeEventListener('scroll', this.scroll, { passive: true })
   },
   methods: {
     scroll(e) {
@@ -68,10 +68,12 @@ export default {
       if (top > 200) {
         this.claimShown = false
       }
-    },
-    beforeRouteLeave(to, from, next) {
+    }
+  },
+  watch: {
+    '$route'() {
       this.menuShown = false
-      next()
+      this.$refs.routerView.scrollTop = 0
     }
   }
 }
