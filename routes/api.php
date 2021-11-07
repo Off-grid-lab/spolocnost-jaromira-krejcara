@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Resources\NewsDetailResource;
+use App\Http\Resources\NewsListResource;
 use App\Models\Faq;
 use App\Models\News;
 use App\Models\Tag;
@@ -18,11 +20,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/news', function (Request $request) {
-    return News::orderByDesc('datetime')->with('tags')->paginate();
+    return NewsListResource::collection(
+        News::orderByDesc('datetime')
+            ->with('tags')
+            ->with('media')
+            ->paginate()
+    );
 });
 
 Route::get('/news/{id}', function (Request $request, $id) {
-    return News::findOrfail($id);
+    return new NewsDetailResource(
+        News::findOrfail($id)
+    );
 });
 
 Route::get('/tags', function (Request $request) {
