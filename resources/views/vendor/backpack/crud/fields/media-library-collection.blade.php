@@ -5,7 +5,7 @@
     <x-media-library-collection
         name="{{ $field['name'] }}"
         rules="{{ $field['rules'] ?? '' }}"
-        :model="$entry"
+        :model="$entry ?? $crud->model"
         collection="{{ $field['name'] }}" />
 
     {{-- HINT --}}
