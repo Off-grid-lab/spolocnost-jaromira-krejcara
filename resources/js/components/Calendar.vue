@@ -5,14 +5,16 @@
         </div>
 
         <div class="flex flex-wrap mt-16 -mx-1">
-            <AppLink :class="current(article) ? 'text-blue' : ''" class="block duration-300 group hover:text-blue px-1 text-sm hover:translate-y-[-.1rem] w-full lg:w-1/4" :to="$i18nRoute({ name: 'NewsDetail', params: { id: article.id } })" v-for="(article, i) in filteredNews" :key="`news_${i}`">
-                <div>{{ $formatDate(article.datetime) }}</div>
-                <div style="aspect-ratio: 16/9;">
-                    <img v-if="article.image" :src="article.image.url" :srcset="article.image.srcset" :alt="article.image.name" class="block h-full object-cover lg:opacity-0 group-hover:opacity-100 w-full">
-                </div>
-                <div class="truncate uppercase">{{ article.title[$i18n.locale] }}</div>
-                <div class="lg:min-h-[10rem] w-full">{{ article.perex[$i18n.locale] }}</div>
-            </AppLink>
+            <div v-for="(article, i) in filteredNews" :key="`news_${i}`" :ref="setRefs" :class="current(article) ? 'text-blue' : ''" class="block duration-300 group hover:text-blue px-1 text-sm hover:translate-y-[-.1rem] w-full lg:w-1/4">
+                <AppLink :to="$i18nRoute({ name: 'NewsDetail', params: { id: article.id } })">
+                    <div>{{ $formatDate(article.datetime) }}</div>
+                    <div style="aspect-ratio: 16/9;">
+                        <img v-if="article.image" :src="article.image.url" :srcset="article.image.srcset" :alt="article.image.name" class="block h-full object-cover lg:opacity-0 group-hover:opacity-100 w-full">
+                    </div>
+                    <div class="truncate uppercase">{{ article.title[$i18n.locale] }}</div>
+                    <div class="lg:min-h-[10rem] w-full">{{ article.perex[$i18n.locale] }}</div>
+                </AppLink>
+            </div>
         </div>
     </div>
 </template>
@@ -24,19 +26,53 @@ export default {
             selectedTag: null,
             news: [],
             tags: [],
+            page: 1,
+            observer: new IntersectionObserver(this.observerCallback),
+            articleRefs: [],
         }
     },
     mounted() {
         axios.get('/api/tags').then(({data}) => {
             this.tags = data
         })
-        axios.get('/api/news').then(({data}) => {
-            this.news = data.data
-        })
+
+        this.loadNews()
     },
     methods: {
         current(article) {
             return this.$route.name === 'NewsDetail' && this.$route.params.id == article.id
+        },
+        loadNews() {
+            return axios.get('/api/news', {
+                params: { page: this.page }
+            }).then(({ data }) => {
+                if (data.data.length) {
+                    this.page += 1
+                    this.news.push(...data.data)
+                }
+
+                if (data.data.length) {
+                    this.$nextTick(() => {
+                        this.observer.observe(this.lastArticleRef())
+                    })
+                }
+            })
+        },
+        observerCallback(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.observer.unobserve(entry.target)
+                    this.loadNews()
+                }
+            })
+        },
+        setRefs(el) {
+            if (el) {
+                this.articleRefs.push(el)
+            }
+        },
+        lastArticleRef() {
+            return this.articleRefs[this.articleRefs.length - 1]
         }
     },
     computed: {

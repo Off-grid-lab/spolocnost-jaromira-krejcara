@@ -24,7 +24,7 @@ Route::get('/news', function (Request $request) {
         News::orderByDesc('datetime')
             ->with('tags')
             ->with('media')
-            ->paginate()
+            ->paginate(16)
     );
 });
 
