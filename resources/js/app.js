@@ -1,8 +1,9 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createI18n } from 'vue-i18n'
+import mitt from 'mitt'
 import App from './App.vue'
-import Footer from './components/Footer.vue'
+import AppLink from './components/AppLink.vue'
 import Faq from './views/Faq.vue'
 import Home from './views/Home.vue'
 import NewsDetail from './views/NewsDetail.vue'
@@ -45,7 +46,7 @@ const router = createRouter({
 const app = createApp(App)
     .use(i18n)
     .use(router)
-    .component('Footer', Footer)
+    .component('AppLink', AppLink)
 
 app.config.globalProperties.$i18nRoute = function (to) {
     return {
@@ -53,6 +54,8 @@ app.config.globalProperties.$i18nRoute = function (to) {
         params: { locale: this.$i18n.locale, ...to.params }
     }
 }
+
+app.config.globalProperties.$emitter = mitt()
 
 app.config.globalProperties.$formatDate = function (string) {
     const date = new Date(string)

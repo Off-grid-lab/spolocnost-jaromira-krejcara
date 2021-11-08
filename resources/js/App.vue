@@ -1,7 +1,7 @@
 <template>
   <Header @showMenu="menuShown = true" @showCalendar="calendarShown = !calendarShown" />
 
-  <div class="lg:flex h-[calc(100vh-3.5rem)]">
+  <div class="lg:flex lg:h-[calc(100vh-3.5rem)] mt-14">
     <div class="overflow-y-auto w-full lg:w-1/2" @scroll="scroll" :class="calendarShown ? 'hidden lg:block' : ''" ref="routerView">
       <div class="flex flex-col items-stretch h-full">
         <div class="flex-grow">
@@ -31,24 +31,25 @@
     </div>
     <div class="flex justify-between items-end">
       <div><a class="pointer-events-auto hover:underline" href="#">Jaromír Krejcar<br>LD Machnáč</a></div>
-      <div><router-link class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Faq' })">FAQ</router-link></div>
+      <div><AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Faq' })">FAQ</AppLink></div>
     </div>
   </div>
 
   <Menu :shown="menuShown" @close="menuShown = false" />
 
-  <div v-show="$route.name == 'Home'" :class="claimShown ? 'top-1/2' : '-top-1/2'" class="duration-1000 fixed leading-none left-1/2 pointer-events-none text-[12vw] lg:text-[8vw] text-blue text-center transform transition-all -translate-x-1/2 -translate-y-1/2 uppercase z-[80]">
+  <div v-show="$route.name == 'Home' && !calendarShown" :class="claimShown ? 'top-1/2' : '-top-1/2'" class="duration-1000 fixed leading-none left-1/2 pointer-events-none text-[12vw] lg:text-[8vw] text-blue text-center transform transition-all -translate-x-1/2 -translate-y-1/2 uppercase z-[80]">
     Vyvlastnime<br>Machnáč!
   </div>
 </template>
 
 <script>
 import Calendar from './components/Calendar.vue'
+import Footer from './components/Footer.vue'
 import Header from './components/Header.vue'
 import Menu from './components/Menu.vue'
 
 export default {
-  components: { Calendar, Header, Menu },
+  components: { Calendar, Footer, Header, Menu },
   data() {
     return {
       menuShown: false,
@@ -58,22 +59,27 @@ export default {
   },
   created() {
     window.addEventListener('scroll', this.scroll, { passive: true })
+    this.$emitter.on('app-link.click', this.resetView)
   },
   unmounted() {
     window.removeEventListener('scroll', this.scroll, { passive: true })
   },
   methods: {
+    resetView() {
+      this.menuShown = false
+      this.calendarShown = false
+      this.$refs.routerView.scrollTop = 0
+    },
     scroll(e) {
       const top = e.target === document ? window.scrollY : e.target.scrollTop
       if (top > 200) {
         this.claimShown = false
       }
-    }
+    },
   },
   watch: {
     '$route'() {
-      this.menuShown = false
-      this.$refs.routerView.scrollTop = 0
+      this.resetView()
     }
   }
 }

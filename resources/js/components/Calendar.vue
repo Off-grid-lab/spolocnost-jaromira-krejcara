@@ -5,14 +5,14 @@
         </div>
 
         <div class="flex flex-wrap mt-24 -mx-1">
-            <router-link :class="current(article) ? 'text-blue' : ''" class="block group hover:text-blue px-1 text-sm w-full lg:w-1/4" :to="$i18nRoute({ name: 'NewsDetail', params: { id: article.id } })" v-for="(article, i) in filteredNews" :key="`news_${i}`">
+            <AppLink :class="current(article) ? 'text-blue' : ''" class="block group hover:text-blue px-1 text-sm w-full lg:w-1/4" :to="$i18nRoute({ name: 'NewsDetail', params: { id: article.id } })" v-for="(article, i) in filteredNews" :key="`news_${i}`">
                 <div>{{ $formatDate(article.datetime) }}</div>
                 <div style="aspect-ratio: 16/9;">
                     <img v-if="article.image" :src="article.image.url" :srcset="article.image.srcset" :alt="article.image.name" class="block object-cover lg:opacity-0 group-hover:opacity-100 w-full">
                 </div>
                 <div class="truncate uppercase">{{ article.title[$i18n.locale] }}</div>
                 <div class="lg:min-h-[10rem] w-full">{{ article.perex[$i18n.locale] }}</div>
-            </router-link>
+            </AppLink>
         </div>
     </div>
 </template>
