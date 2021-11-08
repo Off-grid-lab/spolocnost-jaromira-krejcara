@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black fixed flex h-14 leading-14 justify-between leading-14 px-4 text-blue top-0 uppercase w-full z-[10]">
+  <div class="bg-black fixed flex h-14 leading-14 justify-between leading-14 px-4 text-2xl text-blue top-0 underline-offset-sans underline-thickness-sans uppercase w-full z-[10]">
       <div class="flex w-1/2">
           <button role="button" @click="$emit('showMenu')">
               <div class="border-current border-t-2 relative top-3 w-8"></div>

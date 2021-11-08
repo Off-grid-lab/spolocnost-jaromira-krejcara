@@ -1,13 +1,20 @@
 <template>
-    <div v-show="shown">
-        <div class="bg-blue flex flex-col justify-between fixed inset-0 p-4 text-black uppercase lg:w-1/2 z-[90]">
-            <ul>
-                <li><button role="button" @click="$emit('close')">X</button></li>
+    <div class="fixed inset-0 z-[90]" v-show="shown">
+        <div class="cursor-pointer fixed inset-0" @click="$emit('close')"></div>
+
+        <div class="bg-blue flex flex-col h-full justify-between px-4 py-3 relative text-2xl text-black underline-offset-sans underline-thickness-sans uppercase lg:w-1/2">
+            <ul class="leading-tight">
+                <li>
+                    <button role="button" @click="$emit('close')">
+                        <div class="border-current border-t-2 rotate-[30deg] w-8"></div>
+                        <div class="border-current border-t-2 rotate-[-30deg] w-8"></div>
+                    </button>
+                </li>
                 <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home' })">SJK</AppLink></li>
                 <li><a class="hover:underline" href="#">Kto sme</a></li>
                 <li><a class="hover:underline" href="#">Zámer</a></li>
-                <li><a class="hover:underline" href="#">Jaromír Krejcar</a></li>
-                <li><a class="hover:underline" href="#">LD Machnáč</a></li>
+                <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home', hash: '#jaromir-krejcar' })">Jaromír Krejcar</AppLink></li>
+                <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home', hash: '#ld-machnac' })">LD Machnáč</AppLink></li>
                 <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Faq' })">FAQ</AppLink></li>
                 <li><LocaleSwitcher /></li>
             </ul>
@@ -18,7 +25,7 @@
             </ul>
         </div>
 
-        <div class="bg-gradient-to-r from-blue to-transparent fixed h-full hidden lg:block left-1/2 top-0 w-4 z-[90]"></div>
+        <div class="bg-gradient-to-r from-blue to-transparent bottom-0 fixed hidden lg:block left-1/2 top-0 w-4 z-[90]"></div>
     </div>
 </template>
 

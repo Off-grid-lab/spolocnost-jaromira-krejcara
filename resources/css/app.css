@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: GTPressura;
+        font-weight: 400;
+        src: url('../fonts/GTPressura-Regular.woff') format('woff');
+    }
+
+    @font-face {
+        font-family: SJK;
+        font-weight: 400;
+        src: url('../fonts/SJKProtozastupny-Regular.woff') format('woff');
+    }
+
+    article p + p {
+        @apply mt-6;
+    }
+}

@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <div class="fixed hidden lg:flex lg:flex-col inset-0 justify-between p-4 pointer-events-none text-blue uppercase w-full z-[30]">
+  <div class="fixed hidden lg:flex lg:flex-col inset-0 justify-between px-4 py-3 pointer-events-none text-2xl text-blue underline-offset-sans underline-thickness-sans uppercase w-full z-[30]">
     <div class="text-right">
       <a class="pointer-events-auto hover:underline" href="#">Zámer</a><br>
       <a class="pointer-events-auto hover:underline" href="#">Kto sme</a>
@@ -37,7 +37,7 @@
 
   <Menu :shown="menuShown" @close="menuShown = false" />
 
-  <div v-show="$route.name == 'Home' && !calendarShown" :class="claimShown ? 'top-1/2' : '-top-1/2'" class="duration-1000 fixed leading-none left-1/2 pointer-events-none text-[12vw] lg:text-[8vw] text-blue text-center transform transition-all -translate-x-1/2 -translate-y-1/2 uppercase z-[80]">
+  <div v-show="$route.name == 'Home' && !calendarShown" :class="claimShown ? 'top-1/2' : '-top-1/2'" class="duration-1000 fixed font-display leading-none left-1/2 pointer-events-none text-[14vw] lg:text-[8vw] text-blue text-center transform transition-all -translate-x-1/2 -translate-y-1/2 uppercase z-[80]">
     Vyvlastnime<br>Machnáč!
   </div>
 </template>
@@ -68,7 +68,7 @@ export default {
     resetView() {
       this.menuShown = false
       this.calendarShown = false
-      this.$refs.routerView.scrollTop = 0
+      this.$refs.routerView.scroll(0, 0)
     },
     scroll(e) {
       const top = e.target === document ? window.scrollY : e.target.scrollTop
