@@ -39,10 +39,10 @@ class NewsCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('title');
-        CRUD::column('datetime');
+        CRUD::column('date');
 
         if (!$this->crud->getRequest()->has('order')) {
-            $this->crud->orderBy('datetime', 'desc');
+            $this->crud->orderBy('date', 'desc');
         }
 
         /**
@@ -65,7 +65,7 @@ class NewsCrudController extends CrudController
         CRUD::field('title')->type('text');
         CRUD::field('perex')->type('textarea');
         CRUD::field('content')->type('textarea');
-        CRUD::field('datetime')->type('datetime');
+        CRUD::field('date')->type('date');
         $this->crud->addField([
             'name' => 'tags',
             'type' => 'select2_multiple',

@@ -18,7 +18,7 @@ class NewsListResource extends JsonResource
             'id' => $this->id,
             'title' => $this->getTranslations('title'),
             'perex' => $this->getTranslations('perex'),
-            'datetime' => $this->datetime,
+            'date' => $this->date,
             'image' => new MediaResource($this->getFirstMedia('images')),
             'tags' => $this->tags,
         ];

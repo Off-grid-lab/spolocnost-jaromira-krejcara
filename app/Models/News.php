@@ -29,7 +29,7 @@ class News extends Model implements HasMedia
         'slug',
         'perex',
         'content',
-        'datetime',
+        'date',
     ];
 
     public function tags()

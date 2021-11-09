@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/news', function (Request $request) {
     return NewsListResource::collection(
-        News::orderByDesc('datetime')
+        News::orderByDesc('date')
             ->with('tags')
             ->with('media')
             ->paginate(16)
