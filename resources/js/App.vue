@@ -30,7 +30,10 @@
       <AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Team' })">Kto sme</AppLink>
     </div>
     <div class="flex justify-between items-end">
-      <div><a class="pointer-events-auto hover:underline" href="#">Jaromír Krejcar<br>LD Machnáč</a></div>
+      <div>
+        <AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Home', hash: '#jaromir-krejcar' })">Jaromír Krejcar</AppLink><br>
+        <AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Home', hash: '#ld-machnac' })">LD Machnáč</AppLink>
+      </div>
       <div><AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Faq' })">FAQ</AppLink></div>
     </div>
   </div>
