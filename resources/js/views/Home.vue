@@ -1,11 +1,13 @@
 <template>
-    <div>
-        <img src="https://via.placeholder.com/1000" class="block h-[calc(100vh-3.5rem)] object-cover w-full">
-        <img src="https://via.placeholder.com/1000" class="block h-[calc(100vh-3.5rem)] object-cover w-full">
-        <div class="bg-linen text-black overflow-auto">
+    <img src="https://via.placeholder.com/1000" class="block h-[calc(100vh-3.5rem)] object-cover w-full">
+    <img src="https://via.placeholder.com/1000" class="block h-[calc(100vh-3.5rem)] object-cover w-full">
+    <div class="bg-linen text-black overflow-auto">
+        <div
+            v-for="(article, i) in articles"
+            :key="`article_${i}`"
+            :ref="observe"
+            :id="`${article.slug[$i18n.locale]}`">
             <Article
-                v-for="(article, i) in articles"
-                :key="`article_${i}`"
                 :heading="article.heading[$i18n.locale]"
                 :title="article.title[$i18n.locale]"
                 :slug="article.slug[$i18n.locale]"
@@ -23,12 +25,38 @@ export default {
     data() {
         return {
             articles: [],
+            observer: new IntersectionObserver(this.observerCallback, {
+                threshold: 0,
+            }),
+            visibleTargets: new Set(),
         }
     },
     mounted() {
         axios.get('/api/articles').then(({ data }) => {
             this.articles = data.data
         })
+    },
+    methods: {
+        observe(el) {
+            if (el) {
+                this.observer.observe(el)
+            }
+        },
+        observerCallback(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.visibleTargets.add(entry.target)
+                } else {
+                    this.visibleTargets.delete(entry.target)
+                }
+            })
+            const [first] = this.visibleTargets
+            if (first) {
+                this.$router.replace({ hash: `#${first.id}` })
+            } else {
+                this.$router.replace({ hash: null })
+            }
+        }
     }
 }
 </script>

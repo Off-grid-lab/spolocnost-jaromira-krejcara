@@ -35,6 +35,19 @@ const router = createRouter({
             if (i18n.global.locale !== locale) {
                 i18n.global.locale = locale
             }
+
+            if (to.hash) {
+                // ugly hack, dom not loaded yet
+                setTimeout(() => {
+                    const el = document.querySelector(to.hash)
+                    if (el) {
+                        el.scrollIntoView({
+                            behavior: 'smooth'
+                        })
+                    }
+                }, 500)
+            }
+
             return next()
         },
         children: [
@@ -44,7 +57,7 @@ const router = createRouter({
             { path: 'info', name: 'Info', component: Info },
             { path: 'team', name: 'Team', component: Team },
         ]
-    }]
+    }],
 })
 
 const app = createApp(App)

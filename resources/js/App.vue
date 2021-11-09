@@ -62,16 +62,25 @@ export default {
   },
   created() {
     window.addEventListener('scroll', this.scroll, { passive: true })
-    this.$emitter.on('app-link.click', this.resetView)
+    this.$emitter.on('app-link.click', this.appLinkClicked)
   },
   unmounted() {
     window.removeEventListener('scroll', this.scroll, { passive: true })
   },
   methods: {
-    resetView() {
+    appLinkClicked(route) {
       this.menuShown = false
       this.calendarShown = false
-      this.$refs.routerView.scroll(0, 0)
+      if (route.path === this.$route.path && route.hash) {
+        const el = document.querySelector(route.hash)
+        if (el) {
+          el.scrollIntoView({
+            behavior: 'smooth'
+          })
+        }
+      } else {
+        this.$refs.routerView.scroll(0, 0)
+      }
     },
     scroll(e) {
       const top = e.target === document ? window.scrollY : e.target.scrollTop
@@ -80,10 +89,5 @@ export default {
       }
     },
   },
-  watch: {
-    '$route'() {
-      this.resetView()
-    }
-  }
 }
 </script>

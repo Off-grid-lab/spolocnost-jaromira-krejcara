@@ -26,8 +26,8 @@
         </div>
         <div class="flex fixed h-14 leading-14 px-4 text-2xl text-black top-0 z-[90]">
             <button role="button" class="relative w-8" @click="$emit('close')">
-                <div class="absolute border-current border-t-1 origin-center rotate-[30deg] w-8"></div>
-                <div class="absolute border-current border-t-1 origin-center rotate-[-30deg] w-8"></div>
+                <div class="absolute border-current border-t-1 rotate-[30deg] w-8"></div>
+                <div class="absolute border-current border-t-1 rotate-[-30deg] w-8"></div>
             </button>
         </div>
     </div>
