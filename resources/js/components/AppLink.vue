@@ -1,18 +1,26 @@
 <template>
   <router-link
-    v-bind="$attrs"
+    v-bind="$props"
     @click="$emitter.emit('app-link.click')"
+    :class="isExactActive && $route.hash === route.hash ? 'router-link-exact-with-hash-active' : ''"
   >
     <slot />
   </router-link>
 </template>
 
 <script>
-import { RouterLink } from 'vue-router'
+import { RouterLink, useLink } from 'vue-router'
 
 export default {
-  components: { RouterLink },
   name: 'AppLink',
-  inheritAttrs: false,
+
+  props: {
+    ...RouterLink.props,
+  },
+
+  setup(props) {
+    const { navigate, href, route, isActive, isExactActive } = useLink(props)
+    return { isExactActive, route }
+  },
 }
 </script>

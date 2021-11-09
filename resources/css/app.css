@@ -29,7 +29,7 @@
         @apply mt-6;
     }
 
-    .router-link-exact-active {
+    .router-link-exact-with-hash-active {
         @apply underline;
     }
 }
