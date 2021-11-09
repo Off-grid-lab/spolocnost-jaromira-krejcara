@@ -28,4 +28,8 @@
     article p + p {
         @apply mt-6;
     }
+
+    .router-link-exact-active {
+        @apply underline;
+    }
 }
