@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Resources\InfoResource;
 use App\Http\Resources\NewsDetailResource;
 use App\Http\Resources\NewsListResource;
 use App\Models\Faq;
+use App\Models\Info;
 use App\Models\News;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -40,4 +42,12 @@ Route::get('/tags', function (Request $request) {
 
 Route::get('/faq', function (Request $request) {
     return Faq::orderBy('lft')->get();
+});
+
+Route::get('/infos', function (Request $request) {
+    return InfoResource::collection(
+        Info::orderBy('lft')
+            ->with('media')
+            ->get()
+    );
 });
