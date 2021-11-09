@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Resources\ArticleResource;
 use App\Http\Resources\InfoResource;
 use App\Http\Resources\NewsDetailResource;
 use App\Http\Resources\NewsListResource;
+use App\Models\Article;
 use App\Models\Faq;
 use App\Models\Info;
 use App\Models\News;
@@ -37,7 +39,7 @@ Route::get('/news/{id}', function (Request $request, $id) {
 });
 
 Route::get('/tags', function (Request $request) {
-    return Tag::orderByDesc('title')->get();
+    return Tag::orderBy('title')->get();
 });
 
 Route::get('/faq', function (Request $request) {
@@ -47,6 +49,14 @@ Route::get('/faq', function (Request $request) {
 Route::get('/infos', function (Request $request) {
     return InfoResource::collection(
         Info::orderBy('lft')
+            ->with('media')
+            ->get()
+    );
+});
+
+Route::get('/articles', function (Request $request) {
+    return ArticleResource::collection(
+        Article::orderBy('lft')
             ->with('media')
             ->get()
     );
