@@ -7,7 +7,7 @@
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <title>Spoločnosť Jaromíra Krejcara</title>
     </head>
-    <body class="antialias bg-black text-white">
+    <body class="antialias bg-black text-base text-white">
         <noscript>
             <strong>We're sorry but this site doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
         </noscript>

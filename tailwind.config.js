@@ -9,6 +9,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      borderWidth: {
+        '1': '.125rem',
+        '2': '.25rem',
+      },
       colors: {
         blue: '#0089ff',
         linen: '#f0eee7',
@@ -18,6 +22,9 @@ module.exports = {
         sans: ["GTPressura", ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
+        'sm': ['0.875rem', {
+          lineHeight: 1.15,
+        }],
         '2xl': ['1.75rem', {
           letterSpacing: '.025em',
           lineHeight: 1.25,

@@ -1,5 +1,5 @@
 <template>
-  <Header @showMenu="menuShown = true" @showCalendar="calendarShown = !calendarShown" />
+  <Header @showMenu="menuShown = true" @showCalendar="calendarShown = !calendarShown" v-bind="{ calendarShown }" />
 
   <div class="lg:flex lg:h-[calc(100vh-3.5rem)] mt-14">
     <div class="overflow-y-auto w-full lg:w-1/2" @scroll="scroll" :class="calendarShown ? 'hidden lg:block' : ''" ref="routerView">
