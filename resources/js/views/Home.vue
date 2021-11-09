@@ -34,6 +34,17 @@ export default {
     mounted() {
         axios.get('/api/articles').then(({ data }) => {
             this.articles = data.data
+
+            this.$nextTick(() => {
+                if (this.$route.hash) {
+                    const el = document.querySelector(this.$route.hash)
+                    if (el) {
+                        el.scrollIntoView({
+                            behavior: 'smooth'
+                        })
+                    }
+                }
+            })
         })
     },
     methods: {
@@ -43,6 +54,7 @@ export default {
             }
         },
         observerCallback(entries) {
+            const wasVisible = this.visibleTargets.size
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     this.visibleTargets.add(entry.target)
@@ -53,7 +65,7 @@ export default {
             const [first] = this.visibleTargets
             if (first) {
                 this.$router.replace({ hash: `#${first.id}` })
-            } else {
+            } else if (wasVisible) {
                 this.$router.replace({ hash: null })
             }
         }

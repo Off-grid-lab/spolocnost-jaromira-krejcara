@@ -36,18 +36,6 @@ const router = createRouter({
                 i18n.global.locale = locale
             }
 
-            if (to.hash) {
-                // ugly hack, dom not loaded yet
-                setTimeout(() => {
-                    const el = document.querySelector(to.hash)
-                    if (el) {
-                        el.scrollIntoView({
-                            behavior: 'smooth'
-                        })
-                    }
-                }, 500)
-            }
-
             return next()
         },
         children: [

@@ -71,8 +71,10 @@ export default {
     appLinkClicked(route) {
       this.menuShown = false
       this.calendarShown = false
-      if (route.path === this.$route.path && route.hash) {
+      console.log(route)
+      if (route.hash) {
         const el = document.querySelector(route.hash)
+        console.log(el)
         if (el) {
           el.scrollIntoView({
             behavior: 'smooth'
