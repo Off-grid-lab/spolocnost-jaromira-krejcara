@@ -12,8 +12,8 @@ export default {
         }
     },
     mounted() {
-        axios.get(`/api/faq`).then(({ data }) => {
-            this.list = data
+        axios.get(`/api/infos`).then(({ data }) => {
+            this.list = data.data
         })
     }
 }

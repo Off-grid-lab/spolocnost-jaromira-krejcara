@@ -5,6 +5,7 @@ import mitt from 'mitt'
 import App from './App.vue'
 import AppLink from './components/AppLink.vue'
 import Faq from './views/Faq.vue'
+import Info from './views/Info.vue'
 import Home from './views/Home.vue'
 import NewsDetail from './views/NewsDetail.vue'
 
@@ -39,6 +40,7 @@ const router = createRouter({
             { path: '', name: 'Home', component: Home },
             { path: 'news/:id', name: 'NewsDetail', component: NewsDetail },
             { path: 'faq', name: 'Faq', component: Faq },
+            { path: 'info', name: 'Info', component: Info },
         ]
     }]
 })
