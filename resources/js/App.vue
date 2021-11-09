@@ -27,7 +27,7 @@
   <div class="fixed hidden lg:flex lg:flex-col inset-0 justify-between px-4 py-3 pointer-events-none text-2xl text-blue underline-offset-sans underline-thickness-sans uppercase w-full z-[30]">
     <div class="text-right">
       <AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Info' })">Zámer</AppLink><br>
-      <a class="pointer-events-auto hover:underline" href="#">Kto sme</a>
+      <AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Team' })">Kto sme</AppLink>
     </div>
     <div class="flex justify-between items-end">
       <div><a class="pointer-events-auto hover:underline" href="#">Jaromír Krejcar<br>LD Machnáč</a></div>

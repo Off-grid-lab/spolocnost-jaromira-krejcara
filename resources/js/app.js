@@ -8,6 +8,7 @@ import Faq from './views/Faq.vue'
 import Info from './views/Info.vue'
 import Home from './views/Home.vue'
 import NewsDetail from './views/NewsDetail.vue'
+import Team from './views/Team.vue'
 
 require('./bootstrap')
 
@@ -41,6 +42,7 @@ const router = createRouter({
             { path: 'news/:id', name: 'NewsDetail', component: NewsDetail },
             { path: 'faq', name: 'Faq', component: Faq },
             { path: 'info', name: 'Info', component: Info },
+            { path: 'team', name: 'Team', component: Team },
         ]
     }]
 })

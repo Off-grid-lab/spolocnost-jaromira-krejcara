@@ -1,11 +1,13 @@
 <template>
     <div v-show="shown">
         <div class="fixed inset-0 z-[90]">
+            <div class="cursor-pointer fixed inset-0" @click="$emit('close')"></div>
+
             <div class="bg-blue flex flex-col h-full justify-between pb-3 px-4 relative text-2xl text-black underline-offset-sans underline-thickness-sans uppercase lg:w-1/2">
                 <div>
                     <ul class="leading-tight mt-14">
                         <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home' })">SJK</AppLink></li>
-                        <li><a class="hover:underline" href="#">Kto sme</a></li>
+                        <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Team' })">Kto sme</AppLink></li>
                         <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Info' })">Zámer</AppLink></li>
                         <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home', hash: '#jaromir-krejcar' })">Jaromír Krejcar</AppLink></li>
                         <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home', hash: '#ld-machnac' })">LD Machnáč</AppLink></li>

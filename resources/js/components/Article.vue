@@ -1,6 +1,6 @@
 <template>
-    <article>
-        <h2 v-if="heading" v-bind="slug ? { id: slug } : {}" class="font-display leading-none mb-4 mt-16 lg:mt-24 px-[4vw] text-[14vw] lg:text-8xl text-center uppercase">{{ heading }}</h2>
+    <article v-bind="slug ? { id: slug } : {}">
+        <h2 v-if="heading" class="font-display leading-none mb-4 mt-16 lg:mt-24 px-[4vw] text-[14vw] lg:text-8xl text-center uppercase">{{ heading }}</h2>
 
         <Images v-bind="{ images }" />
 
