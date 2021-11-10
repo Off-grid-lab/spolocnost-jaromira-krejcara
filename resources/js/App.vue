@@ -9,6 +9,7 @@
         </div>
         <div class="bg-blue pb-6 px-4 pt-4 relative text-black z-[40]">
           <Footer />
+          <button @click="scrollToTop" class="absolute bg-linen bottom-0 font-display h-10 m-4 rounded-full right-0 text-2xl w-10">&uarr;</button>
         </div>
       </div>
     </div>
@@ -87,6 +88,12 @@ export default {
       if (top > 200) {
         this.claimShown = false
       }
+    },
+    scrollToTop(e) {
+        e.target.closest('.overflow-y-auto').scrollTo({
+            behavior: 'smooth',
+            top: 0,
+        })
     },
   },
 }
