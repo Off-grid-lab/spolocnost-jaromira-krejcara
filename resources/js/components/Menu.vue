@@ -17,7 +17,7 @@
                 </div>
 
                 <ul>
-                    <li><a class="hover:underline uppercase" href="#">Podporte nás!</a></li>
+                    <li><a class="hover:underline uppercase" href="https://sjk.darujme.sk/zachranme-spolu-ld-machnac-bc0e3-cda68/">Podporte nás!</a></li>
                     <li><a class="hover:underline uppercase" href="https://jaromirkrejcar.us1.list-manage.com/subscribe?u=4e63a4d17cc72ef85255a875f&amp;id=db6fc83619" target="_blank" rel="noopener">Odoberať newsletter</a></li>
                 </ul>
             </div>
