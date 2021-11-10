@@ -10,6 +10,8 @@ use App\Models\Faq;
 use App\Models\Info;
 use App\Models\Member;
 use App\Models\News;
+use App\Models\Partner;
+use App\Models\Support;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -70,4 +72,12 @@ Route::get('/members', function (Request $request) {
             ->with('media')
             ->get()
     );
+});
+
+Route::get('/partners', function (Request $request) {
+    return Partner::orderBy('lft')->get();
+});
+
+Route::get('/supports', function (Request $request) {
+    return Support::orderBy('lft')->get();
 });
