@@ -29,10 +29,12 @@ class NewsRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'title' => 'required',
+            'perex' => 'required',
+            'content' => 'required',
+            'date' => 'required',
             'images' => $this
                 ->validateMultipleMedia()
-                ->minItems(1)
                 ->mime(['image/jpeg', 'image/png'])
         ];
     }

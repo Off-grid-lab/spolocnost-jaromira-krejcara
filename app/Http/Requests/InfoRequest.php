@@ -4,9 +4,12 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
+use Spatie\MediaLibraryPro\Rules\Concerns\ValidatesMedia;
 
 class InfoRequest extends FormRequest
 {
+    use ValidatesMedia;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -26,7 +29,11 @@ class InfoRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'title' => 'required',
+            'content' => 'required',
+            'images' => $this
+                ->validateMultipleMedia()
+                ->mime(['image/jpeg', 'image/png'])
         ];
     }
 
