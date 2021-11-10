@@ -1,8 +1,8 @@
 <template>
   <Header @showMenu="menuShown = true" @showCalendar="calendarShown = !calendarShown" v-bind="{ calendarShown }" />
 
-  <div class="lg:flex lg:h-[calc(100vh-3.5rem)] mt-14">
-    <div class="overflow-y-auto w-full lg:w-1/2" @scroll="scroll" :class="calendarShown ? 'hidden lg:block' : ''" ref="routerView">
+  <div class="fixed lg:flex inset-0 mt-14">
+    <div class="overflow-y-auto h-full w-full lg:w-1/2" @scroll="scroll" :class="calendarShown ? 'hidden lg:block' : ''" ref="routerView">
       <div class="flex flex-col items-stretch h-full">
         <div class="flex-grow">
           <router-view />
@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <div class="overflow-y-auto w-full lg:w-1/2" @scroll="scroll" :class="!calendarShown ? 'hidden lg:block' : ''">
+    <div class="overflow-y-auto h-full w-full lg:w-1/2" @scroll="scroll" :class="!calendarShown ? 'hidden lg:block' : ''">
       <div class="flex flex-col items-stretch h-full">
         <div class="flex-grow">
           <Calendar />
