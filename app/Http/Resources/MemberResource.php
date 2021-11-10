@@ -18,7 +18,7 @@ class MemberResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'content' => $this->getTranslations('content'),
-            'images' => MediaResource::collection($this->getMedia('images')),
+            'image' => new MediaResource($this->getFirstMedia('images')),
         ];
     }
 }
