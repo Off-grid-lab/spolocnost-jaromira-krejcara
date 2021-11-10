@@ -12,12 +12,7 @@
                     814 37 Bratislava
                 </div>
                 <div class="hidden lg:flex mt-4">
-                    <a class="pr-1" href="https://www.instagram.com/spolocnost_jaromira_krejcara/" target="_blank" rel="noopener">
-                        <img class="hover:invert w-7" src="/img/instagram.svg" />
-                    </a>
-                    <a class="pr-1" href="https://www.facebook.com/machnac" target="_blank" rel="noopener">
-                        <img class="hover:invert w-7" src="/img/facebook.svg" />
-                    </a>
+                    <Social />
                 </div>
             </div>
         </div>
@@ -31,12 +26,15 @@
             jaromir.krejcar@gmail.com
         </div>
         <div class="flex lg:hidden mt-4">
-            <a class="pr-1" href="https://www.instagram.com/spolocnost_jaromira_krejcara/" target="_blank" rel="noopener">
-                <img class="hover:invert w-7" src="/img/instagram.svg" />
-            </a>
-            <a class="pr-1" href="https://www.facebook.com/machnac" target="_blank" rel="noopener">
-                <img class="hover:invert w-7" src="/img/facebook.svg" />
-            </a>
+            <Social />
         </div>
     </div>
 </template>
+
+<script>
+import Social from './Social.vue'
+
+export default {
+    components: { Social }
+}
+</script>
