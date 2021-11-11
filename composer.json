@@ -16,7 +16,7 @@
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.7",
         "spatie/laravel-medialibrary": "^9.8",
-        "spatie/laravel-medialibrary-pro": "dev-master",
+        "spatie/laravel-medialibrary-pro": "^1.0.0",
         "spatie/laravel-translatable": "^4.6"
     },
     "require-dev": {
@@ -30,10 +30,10 @@
         "phpunit/phpunit": "^9.5.10"
     },
     "repositories": [
-      {
-          "type": "path",
-          "url": "../laravel-medialibrary-pro"
-      }
+        {
+            "type": "composer",
+            "url": "https://satis.spatie.be"
+        }
     ],
     "autoload": {
         "psr-4": {
