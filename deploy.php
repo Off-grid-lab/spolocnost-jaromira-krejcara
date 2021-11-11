@@ -16,8 +16,12 @@ set('repository', 'https://github.com/SlovakNationalGallery/spolocnost-jaromira-
 set('git_tty', true); 
 
 // Shared files/dirs between deploys 
-add('shared_files', []);
-add('shared_dirs', []);
+add('shared_files', [
+    'auth.json',
+]);
+add('shared_dirs', [
+    'resources/fonts',
+]);
 
 // Writable dirs by web server 
 add('writable_dirs', []);
