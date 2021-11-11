@@ -47,4 +47,4 @@ after('deploy:failed', 'deploy:unlock');
 before('deploy:symlink', 'artisan:migrate');
 
 after('deploy:update_code', 'npm:install');
-after('deploy:update_code', 'build');
+after('deploy:shared', 'build');
