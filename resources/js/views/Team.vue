@@ -1,6 +1,9 @@
 <template>
     <div class="bg-linen h-full overflow-hidden text-black">
-        <div class="flex flex-wrap -mx-1 p-4">
+        <div class="relative pb-[56.25%]">
+            <iframe class="absolute h-full w-full" src="https://www.youtube.com/embed/PeuZO12WDd4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="flex flex-wrap px-4 my-8 -mx-1">
             <div v-for="(member, i) in members" :key="`member_${i}`" class="block duration-300 group px-1 text-sm w-full lg:w-1/4">
                 <div class="mb-2">{{ member.name }}</div>
                 <div class="mb-3" style="aspect-ratio: 16/9;">
