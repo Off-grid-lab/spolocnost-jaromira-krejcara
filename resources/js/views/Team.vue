@@ -5,8 +5,8 @@
         </div>
         <div class="flex flex-wrap px-4 my-8 -mx-1">
             <div v-for="(member, i) in members" :key="`member_${i}`" class="block duration-300 group px-1 text-sm w-full lg:w-1/4">
-                <div class="mb-2">{{ member.name }}</div>
-                <div class="mb-3" style="aspect-ratio: 16/9;">
+                <div class="mb-2 text-2xl lg:text-base">{{ member.name }}</div>
+                <div class="mb-3 -mx-4 lg:mx-0" style="aspect-ratio: 3/2;">
                     <img v-if="member.image" :src="member.image.url" :srcset="member.image.srcset" :alt="member.image.name" class="block h-full object-cover w-full">
                 </div>
                 <div class="mb-1">{{ member.position[$i18n.locale] }}</div>
