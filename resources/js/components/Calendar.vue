@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-black fixed top-14 lg:sticky lg:top-0 lg:flex lg:flex-wrap overflow-x-scroll px-4 lg:pl-4 lg:pr-44 py-1 w-full whitespace-nowrap lg:whitespace-normal z-[10]">
+    <div class="bg-black fixed top-14 lg:sticky lg:top-0 lg:flex lg:flex-wrap overflow-x-auto px-4 lg:pl-4 lg:pr-44 py-1 w-full whitespace-nowrap lg:whitespace-normal z-[10]">
         <button @click="selectedTag = selectedTag !== tag ? tag : null" :class="selectedTag === tag ? 'bg-blue text-black' : 'text-blue'" class="border-1 border-blue duration-100 my-1 mr-2 last:mr-0 px-3 rounded-full" v-for="(tag, i) in tags" :key="`tag_${i}`">{{ tag.title[$i18n.locale] }}</button>
     </div>
 
