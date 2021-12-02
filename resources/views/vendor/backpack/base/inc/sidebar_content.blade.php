@@ -8,3 +8,6 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('info') }}'><i class='nav-icon la la-info'></i> Zámer</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('partner') }}'><i class='nav-icon la la-user-friends'></i> Partneri</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('support') }}'><i class='nav-icon la la-share-alt'></i> Podpora a spolupráca</a></li>
+@if (App\Models\Statute::first())
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('statute/' .  App\Models\Statute::first()->id . '/edit') }}'><i class='nav-icon la la-file-alt'></i> Štatút</a></li>
+@endif

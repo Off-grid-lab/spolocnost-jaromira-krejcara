@@ -1,5 +1,5 @@
 <template>
-    <Accordion v-bind="{ list }" />
+    <Accordion v-bind="{ list }" class="h-full" />
 </template>
 
 <script>

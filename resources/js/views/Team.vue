@@ -11,32 +11,39 @@
             </div>
         </div>
 
+        <Accordion :list="[statute]" v-if="statute" class="border-black border-t-1" />
+
         <Partners :list="partners" heading="Partneri" />
         <Partners :list="supports" heading="Podpora &amp; spolupráca" />
     </div>
 </template>
 
 <script>
+import Accordion from '../components/Accordion.vue'
 import Partners from '../components/Partners.vue'
 
 export default {
-    components: { Partners },
+    components: { Accordion, Partners },
     data() {
         return {
             members: [],
             partners: [],
             supports: [],
+            statute: null,
         }
     },
     mounted() {
-        axios.get(`/api/members`).then(({ data }) => {
+        axios.get('/api/members').then(({ data }) => {
             this.members = data.data
         })
-        axios.get(`/api/partners`).then(({ data }) => {
+        axios.get('/api/partners').then(({ data }) => {
             this.partners = data
         })
-        axios.get(`/api/supports`).then(({ data }) => {
+        axios.get('/api/supports').then(({ data }) => {
             this.supports = data
+        })
+        axios.get('/api/statute').then(({ data }) => {
+            this.statute = data
         })
     }
 }

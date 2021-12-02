@@ -11,6 +11,7 @@ use App\Models\Info;
 use App\Models\Member;
 use App\Models\News;
 use App\Models\Partner;
+use App\Models\Statute;
 use App\Models\Support;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -80,4 +81,8 @@ Route::get('/partners', function (Request $request) {
 
 Route::get('/supports', function (Request $request) {
     return Support::orderBy('lft')->get();
+});
+
+Route::get('/statute', function (Request $request) {
+    return Statute::first();
 });
