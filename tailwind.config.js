@@ -28,6 +28,9 @@ module.exports = {
         'sm': ['0.875rem', {
           lineHeight: 1.15,
         }],
+        'xl': ['1.4rem', {
+          lineHeight: 1.25,
+        }],
         '2xl': ['1.8rem', {
           letterSpacing: '.025em',
           lineHeight: 1.25,

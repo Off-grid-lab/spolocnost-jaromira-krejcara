@@ -5,7 +5,7 @@
         <Images v-bind="{ images, cover }" />
 
         <div class="max-w-xl mb-16 lg:mb-24 px-4">
-            <h3 class="text-2xl my-6">{{ title }}</h3>
+            <h3 class="text-xl lg:text-2xl my-3 lg:my-5">{{ title }}</h3>
             <p v-for="(paragraph, i) in paragraphs" :key="`paragraph_${i}`">{{ paragraph }}</p>
         </div>
     </article>
