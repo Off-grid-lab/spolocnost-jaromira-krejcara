@@ -28,7 +28,10 @@ module.exports = {
         'sm': ['0.875rem', {
           lineHeight: 1.15,
         }],
-        'xl': ['1.4rem', {
+        'base': ['1rem', {
+          lineHeight: 1.25,
+        }],
+        'xl': ['1.5rem', {
           lineHeight: 1.25,
         }],
         '2xl': ['1.8rem', {

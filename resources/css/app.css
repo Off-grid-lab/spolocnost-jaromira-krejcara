@@ -15,16 +15,6 @@
         src: url('../fonts/SJKProtozastupny-Regular.woff') format('woff');
     }
 
-    :root {
-        font-size: 18px;
-    }
-
-    @screen lg {
-        :root {
-            font-size: 16px;
-        }
-    }
-
     article p + p {
         @apply mt-6;
     }
