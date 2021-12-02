@@ -9,7 +9,7 @@
         </div>
         <div class="bg-blue relative text-black z-[40]">
           <Footer />
-          <button @click="scrollToTop" class="absolute bg-linen bottom-0 font-display h-10 m-4 rounded-full right-0 text-2xl w-10">&uarr;</button>
+          <button @click="scrollToTop" class="absolute bg-linen bottom-0 font-display font-light h-12 m-4 rounded-full right-0 text-4xl w-12">&uarr;</button>
         </div>
       </div>
     </div>
