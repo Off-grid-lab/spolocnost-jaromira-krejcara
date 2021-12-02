@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-linen h-full text-black">
+    <div class="bg-linen h-full overflow-hidden text-black">
         <div class="flex flex-wrap -mx-1 p-4">
             <div v-for="(member, i) in members" :key="`member_${i}`" class="block duration-300 group px-1 text-sm w-full lg:w-1/4">
                 <div class="mb-2">{{ member.name }}</div>
