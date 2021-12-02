@@ -41,7 +41,7 @@
 
   <Menu :shown="menuShown" @close="menuShown = false" />
 
-  <div v-show="$route.name == 'Home' && !calendarShown" :class="claimShown ? 'top-1/2' : '-top-1/2'" class="duration-1000 fixed font-display leading-none left-1/2 pointer-events-none text-[14vw] lg:text-[8vw] text-blue text-center transform transition-all -translate-x-1/2 -translate-y-1/2 uppercase z-[80]">
+  <div v-show="$route.name == 'Home' && !calendarShown" :class="claimShown ? 'top-1/2' : '-top-1/2'" class="duration-1000 fixed font-display leading-none left-1/2 pointer-events-none text-[15vw] lg:text-[7.5vw] text-blue text-center transform transition-all -translate-x-1/2 -translate-y-1/2 uppercase z-[80]">
     Vyvlastnime<br>Machnáč!
   </div>
 </template>
