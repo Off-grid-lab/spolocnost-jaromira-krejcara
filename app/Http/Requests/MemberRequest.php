@@ -30,6 +30,7 @@ class MemberRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'position' => 'required',
             'content' => 'required',
             'images' => $this
                 ->validateMultipleMedia()

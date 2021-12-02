@@ -40,6 +40,7 @@ class MemberCrudController extends CrudController
     protected function setupListOperation()
     {
         CRUD::column('name');
+        CRUD::column('position');
 
         if (!$this->crud->getRequest()->has('order')) {
             $this->crud->orderBy('lft');
@@ -63,6 +64,7 @@ class MemberCrudController extends CrudController
         CRUD::setValidation(MemberRequest::class);
 
         CRUD::field('name')->type('text');
+        CRUD::field('position')->type('text');
         CRUD::field('content')->type('textarea');
         $this->crud->addField([
             'name' => 'images',

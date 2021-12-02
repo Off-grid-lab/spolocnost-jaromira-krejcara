@@ -16,11 +16,13 @@ class Member extends Model implements HasMedia
     use HasFactory, HasTranslations, InteractsWithMedia;
 
     public $translatable = [
+        'position',
         'content',
     ];
 
     public $fillable = [
         'name',
+        'position',
         'content',
     ];
 
