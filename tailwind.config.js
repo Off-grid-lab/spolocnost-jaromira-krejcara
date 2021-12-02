@@ -14,7 +14,7 @@ module.exports = {
     extend: {
       borderWidth: {
         '1': '.125rem',
-        '2': '.25rem',
+        '1.5': '.1875rem',
       },
       colors: {
         blue: '#0089ff',
