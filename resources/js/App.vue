@@ -7,7 +7,7 @@
         <div class="flex-grow">
           <router-view />
         </div>
-        <div class="bg-blue pb-6 px-4 pt-4 relative text-black z-[40]">
+        <div class="bg-blue relative text-black z-[40]">
           <Footer />
           <button @click="scrollToTop" class="absolute bg-linen bottom-0 font-display h-10 m-4 rounded-full right-0 text-2xl w-10">&uarr;</button>
         </div>
@@ -18,7 +18,7 @@
         <div class="flex-grow">
           <Calendar />
         </div>
-        <div class="bg-linen pb-6 px-4 pt-4 relative text-black z-[20]">
+        <div class="bg-linen relative text-black z-[20]">
           <Footer />
         </div>
       </div>

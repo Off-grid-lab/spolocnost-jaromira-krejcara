@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-wrap text-sm">
+    <div class="flex flex-wrap pb-6 px-4 pt-4 text-sm w-full">
         <div class="my-2 pr-4 w-full lg:w-1/3">
             <img class="max-w-full w-48" src="/img/logo_black.svg" alt="Logo" />
         </div>
