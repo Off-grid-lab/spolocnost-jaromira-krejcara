@@ -2,7 +2,7 @@
     <article>
         <h2 v-if="heading" class="font-display leading-none mb-4 pt-16 lg:pt-24 px-[4vw] text-[14vw] lg:text-8xl text-center uppercase">{{ heading }}</h2>
 
-        <Images v-bind="{ images }" />
+        <Images v-bind="{ images, cover }" />
 
         <div class="max-w-xl mb-16 lg:mb-24 px-4">
             <h3 class="text-2xl my-6">{{ title }}</h3>
@@ -15,7 +15,7 @@
 import Images from './Images.vue'
 export default {
     components: { Images },
-    props: ['heading', 'title', 'content', 'images', 'slug'],
+    props: ['heading', 'title', 'content', 'images', 'slug', 'cover'],
     data() {
         return {
             currentImage: 0,
