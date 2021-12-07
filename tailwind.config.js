@@ -31,6 +31,9 @@ module.exports = {
         'base': ['1rem', {
           lineHeight: 1.25,
         }],
+        'lg': ['1.35rem', {
+          lineHeight: 1.25,
+        }],
         'xl': ['1.5rem', {
           lineHeight: 1.25,
         }],

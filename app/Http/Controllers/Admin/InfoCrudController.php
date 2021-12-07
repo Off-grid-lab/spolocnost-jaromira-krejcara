@@ -63,7 +63,7 @@ class InfoCrudController extends CrudController
         CRUD::setValidation(InfoRequest::class);
 
         CRUD::field('title')->type('text');
-        CRUD::field('content')->type('textarea');
+        CRUD::field('content')->type('ckeditor');
         $this->crud->addField([
             'name' => 'images',
             'type' => 'media-library-collection',

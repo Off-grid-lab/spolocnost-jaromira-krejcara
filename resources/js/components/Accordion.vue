@@ -5,9 +5,7 @@ a<template>
 
             <div :class="selected !== article ? 'hidden' : ''">
                 <Images :images="article.images" />
-                <div class="text-center max-w-xl mx-auto pb-8 lg:pb-16 px-4">
-                    <p v-for="(paragraph, i) in split(article.content[$i18n.locale])" :key="`paragraph_${i}`">{{ paragraph }}</p>
-                </div>
+                <div class="text-center max-w-xl mx-auto pb-8 lg:pb-16 px-4" v-html="article.content[$i18n.locale]"></div>
             </div>
         </article>
     </div>
@@ -22,11 +20,6 @@ export default {
     data() {
         return {
             selected: null,
-        }
-    },
-    methods: {
-        split(content) {
-            return content ? content.split('\n') : []
         }
     }
 }

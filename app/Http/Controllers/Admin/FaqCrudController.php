@@ -64,7 +64,7 @@ class FaqCrudController extends CrudController
         CRUD::setValidation(FaqRequest::class);
 
         CRUD::field('title')->type('text');
-        CRUD::field('content')->type('textarea');
+        CRUD::field('content')->type('ckeditor');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

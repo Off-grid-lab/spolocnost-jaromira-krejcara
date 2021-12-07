@@ -64,7 +64,7 @@ class ArticleCrudController extends CrudController
 
         CRUD::field('heading')->type('text');
         CRUD::field('title')->type('text');
-        CRUD::field('content')->type('textarea');
+        CRUD::field('content')->type('ckeditor');
         $this->crud->addField([
             'name' => 'images',
             'type' => 'media-library-collection',

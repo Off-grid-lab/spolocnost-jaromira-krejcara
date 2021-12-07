@@ -5,8 +5,8 @@
         <Images v-bind="{ images, cover }" />
 
         <div class="max-w-xl mb-16 lg:mb-24 px-4">
-            <h3 class="text-2xl my-5">{{ title }}</h3>
-            <p v-for="(paragraph, i) in paragraphs" :key="`paragraph_${i}`">{{ paragraph }}</p>
+            <h1>{{ title }}</h1>
+            <div v-html="content"></div>
         </div>
     </article>
 </template>
@@ -19,11 +19,6 @@ export default {
     data() {
         return {
             currentImage: 0,
-        }
-    },
-    computed: {
-        paragraphs() {
-            return this.content ? this.content.split('\n') : []
         }
     }
 }

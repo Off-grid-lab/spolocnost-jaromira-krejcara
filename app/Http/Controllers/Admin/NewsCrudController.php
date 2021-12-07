@@ -64,7 +64,7 @@ class NewsCrudController extends CrudController
 
         CRUD::field('title')->type('text');
         CRUD::field('perex')->type('textarea');
-        CRUD::field('content')->type('textarea');
+        CRUD::field('content')->type('ckeditor');
         CRUD::field('date')->type('date');
         $this->crud->addField([
             'name' => 'tags',

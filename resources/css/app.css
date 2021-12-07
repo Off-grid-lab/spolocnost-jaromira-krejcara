@@ -15,8 +15,20 @@
         src: url('../fonts/SJKProtozastupny-Regular.woff') format('woff');
     }
 
+    article h1 {
+        @apply my-5 text-2xl;
+    }
+
+    article h2 {
+        @apply my-4 text-lg;
+    }
+
     article p + p {
         @apply mt-6;
+    }
+
+    article [data-oembed-url] {
+        @apply my-8;
     }
 
     .router-link-exact-with-hash-active {

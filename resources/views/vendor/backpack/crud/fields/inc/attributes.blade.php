@@ -1,7 +1,9 @@
 @php
     $field['attributes'] = $field['attributes'] ?? [];
     $field['attributes']['class'] = $field['attributes']['class'] ?? $default_class ?? 'form-control';
-    $field['attributes']['rows'] = $field['attributes']['rows'] ?? 15;
+    if ($field['type'] === 'textarea') {
+        $field['attributes']['rows'] = $field['attributes']['rows'] ?? 5;
+    }
 @endphp
 
 @foreach ($field['attributes'] as $attribute => $value)
