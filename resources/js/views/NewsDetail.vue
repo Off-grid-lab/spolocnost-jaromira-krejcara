@@ -20,9 +20,14 @@ export default {
     },
     methods: {
         fetch(route) {
-            axios.get(`/api/news/${route.params.id}`).then(({data}) => {
-                this.news = data.data
-            })
+            return axios
+                .get(`/api/news/${route.params.id}`)
+                .then(({data}) => {
+                    this.news = data.data
+                    if (!this.news.title[this.$i18n.locale]) {
+                        this.$router.replace({ name: 'Home' })
+                    }
+                })
         }
     },
     beforeRouteUpdate(to, from, next) {

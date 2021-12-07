@@ -44,6 +44,7 @@ const router = createRouter({
             { path: 'faq', name: 'Faq', component: Faq },
             { path: 'info', name: 'Info', component: Info },
             { path: 'team', name: 'Team', component: Team },
+            { path: ':catchAll(.*)', redirect: 'Home' },
         ]
     }],
 })
