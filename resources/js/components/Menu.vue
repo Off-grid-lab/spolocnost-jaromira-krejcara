@@ -1,7 +1,7 @@
 <template>
-    <div v-show="shown">
-        <div class="cursor-pointer fixed inset-0" @click="$emit('close')"></div>
-        <div class="bg-blue fixed inset-0 lg:right-1/2 overflow-y-auto z-[90]">
+    <div v-if="shown" class="cursor-pointer fixed inset-0" @click="$emit('close')"></div>
+    <transition name="show">
+        <div v-if="shown" class="bg-blue fixed inset-0 lg:w-1/2 overflow-x-visible overflow-y-auto shadow-menu z-[90]">
             <div class="flex flex-col h-full justify-between relative text-black underline-offset-sans underline-thickness-sans">
                 <ul class="leading-tight mt-14 px-4 text-2xl uppercase">
                     <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home' })">SJK</AppLink></li>
@@ -30,9 +30,20 @@
                 </button>
             </div>
         </div>
-        <div class="bg-gradient-to-r from-blue to-transparent bottom-0 fixed hidden lg:block left-1/2 top-0 w-4 z-[90]"></div>
-    </div>
+    </transition>
 </template>
+
+<style scoped>
+.show-enter-active,
+.show-leave-active {
+    @apply duration-300 transition-transform;
+}
+
+.show-enter-from,
+.show-leave-to {
+    @apply -translate-x-full;
+}
+</style>
 
 <script>
 import Footer from './Footer.vue'

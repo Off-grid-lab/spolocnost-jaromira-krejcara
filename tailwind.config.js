@@ -16,6 +16,9 @@ module.exports = {
         '1': '.125rem',
         '1.5': '.1875rem',
       },
+      boxShadow: {
+        menu: '0 0 .5rem .5rem #0089ff'
+      },
       colors: {
         blue: '#0089ff',
         linen: '#f0eee7',
