@@ -23,6 +23,14 @@
         @apply my-4 text-lg;
     }
 
+    article a {
+        @apply underline;
+    }
+
+    article a:hover {
+        @apply no-underline;
+    }
+
     article p + p {
         @apply mt-6;
     }

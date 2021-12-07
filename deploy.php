@@ -21,6 +21,7 @@ add('shared_files', [
 ]);
 add('shared_dirs', [
     'resources/fonts',
+    'public/uploads',
 ]);
 
 // Writable dirs by web server 

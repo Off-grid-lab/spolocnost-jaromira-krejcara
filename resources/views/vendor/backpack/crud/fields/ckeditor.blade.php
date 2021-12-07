@@ -11,7 +11,6 @@
                 "items" => [
                     "Bold",
                     "Italic",
-                    "Underline",
                     "RemoveFormat",
                 ]
             ],

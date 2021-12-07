@@ -11,3 +11,4 @@
 @if (App\Models\Statute::first())
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('statute/' .  App\Models\Statute::first()->id . '/edit') }}'><i class='nav-icon la la-file-alt'></i> Štatút</a></li>
 @endif
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}"><i class="nav-icon la la-files-o"></i> <span>Súbory</span></a></li>
