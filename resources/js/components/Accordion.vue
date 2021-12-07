@@ -1,4 +1,4 @@
-a<template>
+<template>
     <div class="bg-linen text-black" v-if="list.length">
         <article class="border-b-1 last:border-0 border-black" v-for="(article, i) in list" :key="`list_${i}`">
             <h3 @click="selected = selected !== article ? article : null" class="cursor-pointer max-w-2xl mx-auto p-4 text-center text-2xl uppercase">{{ article.title[$i18n.locale] }}</h3>
