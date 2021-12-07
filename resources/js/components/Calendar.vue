@@ -67,12 +67,13 @@ export default {
     },
     computed: {
         filteredNews() {
-            if (this.selectedTag === null) {
-                return this.news
-            }
-
             return this.news.filter(article => {
-                return article.tags.map(tag => tag.id).includes(this.selectedTag.id)
+                return article.title[this.$i18n.locale] && (
+                    this.selectedTag === null ||
+                    article.tags
+                        .map(tag => tag.id)
+                        .includes(this.selectedTag.id)
+                )
             })
         }
     }
