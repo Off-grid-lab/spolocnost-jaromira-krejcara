@@ -11,7 +11,7 @@
                     <img v-if="article.image" :src="article.image.url" :srcset="article.image.srcset" :alt="article.image.name" :class="{ 'opacity-0': !current(article) }" class="block h-full object-cover group-hover:opacity-100 w-full">
                 </div>
                 <div class="mb-1 mt-3 truncate uppercase">{{ article.title[$i18n.locale] }}</div>
-                <div class="mb-4 min-h-[10rem] w-full">{{ article.perex[$i18n.locale] }}</div>
+                <div class="mb-4 min-h-[5rem] lg:min-h-[10rem] w-full">{{ article.perex[$i18n.locale] }}</div>
             </AppLink>
             <div ref="last"></div>
         </div>

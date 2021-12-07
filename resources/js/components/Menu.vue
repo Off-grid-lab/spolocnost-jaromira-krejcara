@@ -1,8 +1,7 @@
 <template>
     <div v-show="shown">
+        <div class="cursor-pointer fixed inset-0" @click="$emit('close')"></div>
         <div class="bg-blue fixed inset-0 lg:right-1/2 overflow-y-auto z-[90]">
-            <div class="cursor-pointer fixed inset-0" @click="$emit('close')"></div>
-
             <div class="flex flex-col h-full justify-between relative text-black underline-offset-sans underline-thickness-sans">
                 <ul class="leading-tight mt-14 px-4 text-2xl uppercase">
                     <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home' })">SJK</AppLink></li>
