@@ -1,6 +1,6 @@
 <template>
-    <img src="https://via.placeholder.com/1000" class="block h-[calc(100vh-3.5rem)] object-cover w-full">
-    <img src="https://via.placeholder.com/1000" class="block h-[calc(100vh-3.5rem)] object-cover w-full">
+    <img src="/img/web_home1.jpg" class="block h-[calc(100vh-3.5rem)] object-cover w-full">
+    <img src="/img/web_home2.jpg" class="block h-[calc(100vh-3.5rem)] object-cover w-full">
     <div class="bg-linen text-black overflow-auto">
         <div
             v-for="(article, i) in articles"
