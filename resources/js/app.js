@@ -12,11 +12,28 @@ import Team from './views/Team.vue'
 
 require('./bootstrap')
 
+const messages = {
+    en: {
+        'SJK': 'JKS',
+        'Kto sme': 'About us',
+        'Zámer': 'Our goals',
+        'LD Machnáč': 'Sanatorium Machnáč',
+        'Podporte nás!': 'Support us!',
+        'Odoberať newsletter': 'Subscribe to Newsletters',
+        'Vysoká škola výtvarných umení': 'Academy of Fine Arts and Design',
+        'Spoločnosť Jaromíra Krejcara, n.\u00A0o.': 'Jaromir Krejcar Society, NPO',
+        'IČO': 'Business ID',
+        'Kontakt pre médiá': 'Contact for media',
+        'Partneri': 'Partners',
+        'Podpora & spolupráca': 'Support & Cooperation',
+        '#ld-machnac': '#sanatorium-machnac',
+    }
+}
 
 const i18n = createI18n({
     locale: 'sk',
     fallbackLocale: 'sk',
-    messages: {}
+    messages,
 })
 
 const router = createRouter({

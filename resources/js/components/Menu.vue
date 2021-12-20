@@ -4,19 +4,19 @@
         <div v-if="shown" class="bg-blue fixed inset-0 lg:w-1/2 overflow-x-visible overflow-y-auto shadow-menu z-[90]">
             <div class="flex flex-col h-full justify-between relative text-black underline-offset-sans underline-thickness-sans">
                 <ul class="leading-tight mt-14 px-4 text-2xl uppercase">
-                    <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home' })">SJK</AppLink></li>
-                    <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Team' })">Kto sme</AppLink></li>
-                    <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Info' })">Zámer</AppLink></li>
-                    <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home', hash: '#jaromir-krejcar' })">Jaromír Krejcar</AppLink></li>
-                    <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home', hash: '#ld-machnac' })">LD Machnáč</AppLink></li>
+                    <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home' })">{{ $t('SJK') }}</AppLink></li>
+                    <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Team' })">{{ $t('Kto sme') }}</AppLink></li>
+                    <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Info' })">{{ $t('Zámer') }}</AppLink></li>
+                    <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home', hash: '#jaromir-krejcar' })">{{ $t('Jaromír Krejcar') }}</AppLink></li>
+                    <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home', hash: $t('#ld-machnac') })">{{ $t('LD Machnáč') }}</AppLink></li>
                     <li><AppLink class="hover:underline" :to="$i18nRoute({ name: 'Faq' })">FAQ</AppLink></li>
                     <li><LocaleSwitcher /></li>
                 </ul>
 
                 <div class="relative top-4">
                     <ul class="px-4 text-2xl uppercase">
-                        <li><a class="hover:underline" href="https://sjk.darujme.sk/zachranme-spolu-ld-machnac-bc0e3-cda68/" target="_blank" rel="noopener">Podporte nás!</a></li>
-                        <li><a class="hover:underline" href="https://jaromirkrejcar.us1.list-manage.com/subscribe?u=4e63a4d17cc72ef85255a875f&amp;id=db6fc83619" target="_blank" rel="noopener">Odoberať newsletter</a></li>
+                        <li><a class="hover:underline" href="https://sjk.darujme.sk/zachranme-spolu-ld-machnac-bc0e3-cda68/" target="_blank" rel="noopener">{{ $t('Podporte nás!') }}</a></li>
+                        <li><a class="hover:underline" href="https://jaromirkrejcar.us1.list-manage.com/subscribe?u=4e63a4d17cc72ef85255a875f&amp;id=db6fc83619" target="_blank" rel="noopener">{{ $t('Odoberať newsletter') }}</a></li>
                     </ul>
 
                     <Footer class="absolute" />

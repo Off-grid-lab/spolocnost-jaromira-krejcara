@@ -7,7 +7,7 @@
               <div class="border-current border-t-1 relative bottom-3 w-8"></div>
           </button>
           <div class="ml-4">
-              <AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home' })">SJK</AppLink>
+              <AppLink class="hover:underline" :to="$i18nRoute({ name: 'Home' })">{{ $t('SJK') }}</AppLink>
           </div>
       </div>
       <div class="hidden lg:flex justify-between pl-4 w-1/2">

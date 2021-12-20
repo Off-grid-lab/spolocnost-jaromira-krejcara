@@ -27,13 +27,13 @@
 
   <div class="fixed hidden lg:flex lg:flex-col inset-0 justify-between px-4 py-3 pointer-events-none text-2xl text-blue underline-offset-sans underline-thickness-sans uppercase w-full z-[30]">
     <div class="text-right">
-      <AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Info' })">Zámer</AppLink><br>
-      <AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Team' })">Kto sme</AppLink>
+      <AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Info' })">{{ $t('Zámer') }}</AppLink><br>
+      <AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Team' })">{{ $t('Kto sme') }}</AppLink>
     </div>
     <div class="flex justify-between items-end">
       <div>
         <AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Home', hash: '#jaromir-krejcar' })">Jaromír Krejcar</AppLink><br>
-        <AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Home', hash: '#ld-machnac' })">LD Machnáč</AppLink>
+        <AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Home', hash: $t('#ld-machnac') })">{{ $t('LD Machnáč') }}</AppLink>
       </div>
       <div><AppLink class="pointer-events-auto hover:underline" :to="$i18nRoute({ name: 'Faq' })">FAQ</AppLink></div>
     </div>

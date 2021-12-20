@@ -5,7 +5,7 @@
         </div>
 
         <div class="my-8 px-4">
-            <h1 class="text-2xl">Kto sme</h1>
+            <h1 class="text-2xl">{{ $t('Kto sme') }}</h1>
 
             <div class="flex flex-wrap mt-4 -mx-1">
                 <div v-for="(member, i) in members" :key="`member_${i}`" class="block duration-300 group px-1 text-sm w-full lg:w-1/4">
@@ -20,8 +20,8 @@
 
         <Accordion :list="[statute]" v-if="statute" class="border-black border-t-1" justify="left" />
 
-        <Partners :list="partners" heading="Partneri" />
-        <Partners :list="supports" heading="Podpora &amp; spolupráca" />
+        <Partners :list="partners" :heading="$t('Partneri')" />
+        <Partners :list="supports" :heading="$t('Podpora & spolupráca')" />
     </div>
 </template>
 
