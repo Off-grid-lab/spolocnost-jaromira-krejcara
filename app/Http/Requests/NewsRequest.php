@@ -29,9 +29,9 @@ class NewsRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'perex' => 'required',
-            'content' => 'required',
+            // 'title' => 'required',
+            // 'perex' => 'required',
+            // 'content' => 'required',
             'date' => 'required',
             'images' => $this
                 ->validateMultipleMedia()
