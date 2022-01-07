@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <Accordion :list="[statute]" v-if="statute" class="border-black border-t-1" justify="left" />
+        <Accordion :list="[statute]" v-if="statute?.title[$i18n.locale]" class="border-black border-t-1" justify="left" />
 
         <Partners :list="partners" :heading="$t('Partneri')" />
         <Partners :list="supports" :heading="$t('Podpora & spolupráca')" />
