@@ -27,6 +27,8 @@ const messages = {
         'Partneri': 'Partners',
         'Podpora & spolupráca': 'Support & Cooperation',
         '#ld-machnac': '#sanatorium-machnac',
+        'Vyvlastnime\nMachnáč!': 'Expropriate\nMachnáč!',
+        'Aktuality': 'News',
     }
 }
 

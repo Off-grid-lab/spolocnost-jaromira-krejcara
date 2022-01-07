@@ -13,7 +13,7 @@
       <div class="hidden lg:flex justify-between pl-4 w-1/2">
         <LocaleSwitcher />
       </div>
-      <div class="lg:hidden text-blue"><span :class="calendarShown ? 'underline' : 'hover:underline'" class="cursor-pointer normal-case " @click="$emit('showCalendar')">Aktuality</span></div>
+      <div class="lg:hidden text-blue"><span :class="calendarShown ? 'underline' : 'hover:underline'" class="cursor-pointer normal-case " @click="$emit('showCalendar')">{{ $t('Aktuality') }}</span></div>
   </div>
 </template>
 
