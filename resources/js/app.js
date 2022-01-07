@@ -59,7 +59,7 @@ const router = createRouter({
         },
         children: [
             { path: '', name: 'Home', component: Home },
-            { path: 'news/:id', name: 'NewsDetail', component: NewsDetail },
+            { path: 'news/:id/:slug', name: 'NewsDetail', component: NewsDetail },
             { path: 'faq', name: 'Faq', component: Faq },
             { path: 'info', name: 'Info', component: Info },
             { path: 'team', name: 'Team', component: Team },
