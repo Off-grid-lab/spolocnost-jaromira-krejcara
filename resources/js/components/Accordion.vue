@@ -1,6 +1,6 @@
 <template>
     <div class="bg-linen text-black" v-if="list.length">
-        <article class="border-b-1 last:border-0 border-black" v-for="(article, i) in list" :key="`list_${i}`">
+        <article class="border-b-1 last:border-0 border-black" v-for="(article, i) in filteredList" :key="`list_${i}`">
             <h3
             @click="selected = selected !== article ? article : null"
             class="cursor-pointer max-w-2xl p-4 text-2xl uppercase"
@@ -28,6 +28,13 @@ export default {
     data() {
         return {
             selected: null,
+        }
+    },
+    computed: {
+        filteredList() {
+            return this.list.filter(article => {
+                return article.title[this.$i18n.locale]
+            })
         }
     }
 }

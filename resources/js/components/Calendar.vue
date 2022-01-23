@@ -5,7 +5,7 @@
 
     <div class="px-4">
         <div class="flex flex-wrap mt-16 -mx-1">
-            <AppLink v-for="(article, i) in filteredNews" :key="`news_${i}`" :class="{ 'text-blue': current(article) }" class="block duration-300 group hover:text-blue no-underline px-1 text-sm hover:translate-y-[-.1rem] w-full lg:w-1/4" :to="$i18nRoute({ name: 'NewsDetail', params: { id: article.id, slug: article.slug?.[$i18n.locale] } })">
+            <AppLink v-for="(article, i) in filteredNews" :key="`news_${i}`" :class="{ 'text-blue': current(article) }" class="block duration-300 group hover:text-blue no-underline px-1 text-sm hover:translate-y-[-.1rem] w-full lg:w-1/4" :to="$i18nRoute({ name: 'NewsDetail', params: { id: article.id, slug: article.slug[$i18n.locale] } })">
                 <div class="mb-2">{{ $formatDate(article.date) }}</div>
                 <div style="aspect-ratio: 16/9;">
                     <img v-if="article.image" :src="article.image.url" :srcset="article.image.srcset" :alt="article.image.name" :class="{ 'opacity-0': !current(article) }" class="block h-full object-cover group-hover:opacity-100 w-full">
