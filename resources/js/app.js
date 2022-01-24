@@ -15,6 +15,7 @@ require('./bootstrap')
 const messages = {
     en: {
         'SJK': 'JKS',
+        'Spoločnosť Jaromíra Krejcara': 'Jaromir Krejcar Society',
         'Kto sme': 'About us',
         'Zámer': 'Our goals',
         'LD Machnáč': 'Sanatorium Machnáč',
@@ -47,7 +48,7 @@ const router = createRouter({
         component: {
             template: '<router-view></router-view>'
         },
-        beforeEnter: (to, from, next) => {
+        beforeEnter(to, from, next) {
             const locale = to.params.locale
             const supported_locales = ['sk', 'en']
             if (!supported_locales.includes(locale)) return next('sk')
@@ -65,7 +66,7 @@ const router = createRouter({
             { path: 'team', name: 'Team', component: Team },
             { path: ':catchAll(.*)', redirect: 'Home' },
         ]
-    }],
+    }]
 })
 
 const app = createApp(App)

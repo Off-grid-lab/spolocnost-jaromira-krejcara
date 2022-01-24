@@ -68,6 +68,11 @@ export default {
   unmounted() {
     window.removeEventListener('scroll', this.scroll, { passive: true })
   },
+  watch: {
+    '$i18n.locale'() {
+      document.title = this.$t('Spoločnosť Jaromíra Krejcara')
+    }
+  },
   methods: {
     appLinkClicked(route) {
       this.menuShown = false
