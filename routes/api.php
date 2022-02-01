@@ -44,7 +44,7 @@ Route::get('/news/{id}', function (Request $request, $id) {
 });
 
 Route::get('/tags', function (Request $request) {
-    return Tag::orderBy('title')->get();
+    return Tag::orderBy('lft')->get();
 });
 
 Route::get('/faq', function (Request $request) {
