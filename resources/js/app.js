@@ -44,6 +44,12 @@ const router = createRouter({
     routes: [{
         path: '/', redirect: '/sk'
     }, {
+        path: '/liecebny-dom-machnac', redirect: '/sk#ld-machnac'
+    }, {
+        path: '/jaromir-krejcar', redirect: '/sk#jaromir-krejcar'
+    }, {
+        path: '/kto-sme', redirect: '/sk/team'
+    }, {
         path: '/:locale',
         component: {
             template: '<router-view></router-view>'
