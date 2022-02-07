@@ -59,7 +59,6 @@ export default {
       menuShown: false,
       claimShown: true,
       calendarShown: false,
-      subtitle: null,
     }
   },
   created() {
@@ -70,24 +69,20 @@ export default {
     window.removeEventListener('scroll', this.scroll, { passive: true })
   },
   watch: {
-    '$route'() {
-      if (this.$route?.meta?.title) {
-        this.subtitle = this.$t(this.$route.meta.title)
-      } else {
-        this.subtitle = null
-      }
+    '$i18n.locale'() {
+      this.updateTitle(this.$t(this.$route?.meta?.title ?? ''))
     },
-    subtitle() {
-      if (this.subtitle) {
-        document.title = `${this.subtitle} – ${this.$t('Spoločnosť Jaromíra Krejcara')}`
-      } else {
-        document.title = this.$t('Spoločnosť Jaromíra Krejcara')
-      }
+    '$route'() {
+      this.updateTitle(this.$t(this.$route?.meta?.title ?? ''))
     }
   },
   methods: {
     updateTitle(title) {
-      this.subtitle = title
+      if (title) {
+        document.title = `${title} – ${this.$t('Spoločnosť Jaromíra Krejcara')}`
+      } else {
+        document.title = this.$t('Spoločnosť Jaromíra Krejcara')
+      }
     },
     appLinkClicked(route) {
       this.menuShown = false
