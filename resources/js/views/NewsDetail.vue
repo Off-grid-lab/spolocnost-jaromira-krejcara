@@ -9,6 +9,7 @@ import Article from '../components/Article.vue'
 
 export default {
     components: { Article },
+    emits: ['updateTitle'],
     data() {
         return {
             news: null,
@@ -24,7 +25,9 @@ export default {
                 .get(`/api/news/${route.params.id}`)
                 .then(({data}) => {
                     this.news = data.data
-                    if (!this.news.title[this.$i18n.locale]) {
+                    if (this.news.title[this.$i18n.locale]) {
+                        this.$emit('updateTitle', this.news.title[this.$i18n.locale])
+                    } else {
                         this.$router.replace({ name: 'Home' })
                     }
                 })

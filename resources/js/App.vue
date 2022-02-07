@@ -5,7 +5,7 @@
     <div class="overflow-y-auto h-full w-full lg:w-1/2" @scroll.passive="scroll" :class="calendarShown ? 'hidden lg:block' : ''" ref="routerView">
       <div class="flex flex-col items-stretch h-full">
         <div class="flex-grow">
-          <router-view />
+          <router-view @updateTitle="updateTitle" />
         </div>
         <div class="bg-blue relative text-black z-[40]">
           <Footer />
@@ -59,6 +59,7 @@ export default {
       menuShown: false,
       claimShown: true,
       calendarShown: false,
+      subtitle: null,
     }
   },
   created() {
@@ -69,11 +70,25 @@ export default {
     window.removeEventListener('scroll', this.scroll, { passive: true })
   },
   watch: {
-    '$i18n.locale'() {
-      document.title = this.$t('Spoločnosť Jaromíra Krejcara')
+    '$route'() {
+      if (this.$route?.meta?.title) {
+        this.subtitle = this.$t(this.$route.meta.title)
+      } else {
+        this.subtitle = null
+      }
+    },
+    subtitle() {
+      if (this.subtitle) {
+        document.title = `${this.subtitle} – ${this.$t('Spoločnosť Jaromíra Krejcara')}`
+      } else {
+        document.title = this.$t('Spoločnosť Jaromíra Krejcara')
+      }
     }
   },
   methods: {
+    updateTitle(title) {
+      this.subtitle = title
+    },
     appLinkClicked(route) {
       this.menuShown = false
       this.calendarShown = false

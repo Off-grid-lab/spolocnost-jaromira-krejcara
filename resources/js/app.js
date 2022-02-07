@@ -65,11 +65,11 @@ const router = createRouter({
             return next()
         },
         children: [
-            { path: '', name: 'Home', component: Home },
+            { path: '', name: 'Home', component: Home, meta: { title: '' } },
             { path: 'news/:id/:slug', name: 'NewsDetail', component: NewsDetail },
-            { path: 'faq', name: 'Faq', component: Faq },
-            { path: 'info', name: 'Info', component: Info },
-            { path: 'team', name: 'Team', component: Team },
+            { path: 'faq', name: 'Faq', component: Faq, meta: { title: 'FAQ' } },
+            { path: 'info', name: 'Info', component: Info, meta: { title: 'Zámer' } },
+            { path: 'team', name: 'Team', component: Team, meta: { title: 'Kto sme' } },
             { path: ':catchAll(.*)', redirect: 'Home' },
         ]
     }]
