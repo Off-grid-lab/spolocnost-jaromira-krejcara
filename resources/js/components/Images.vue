@@ -14,6 +14,7 @@
                     <img
                     :src="image.url"
                     :srcset="image.srcset"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
                     :alt="image.name"
                     class="block h-full w-full"
                     :class="cover ? 'object-cover' : 'object-contain object-left-top'">
