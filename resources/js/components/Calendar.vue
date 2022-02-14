@@ -8,7 +8,7 @@
             <AppLink v-for="(article, i) in filteredNews" :key="`news_${i}`" :class="{ 'text-blue': current(article) }" class="block duration-300 group hover:text-blue no-underline px-1 text-sm hover:translate-y-[-.1rem] w-full lg:w-1/4" :to="$i18nRoute({ name: 'NewsDetail', params: { id: article.id, slug: article.slug[$i18n.locale] } })">
                 <div class="mb-2">{{ $formatDate(article.date) }}</div>
                 <div style="aspect-ratio: 16/9;">
-                    <img v-if="article.image" :src="article.image.url" :srcset="article.image.srcset" sizes="(min-width: 1024px) 12.5vw, 100vw" :alt="article.image.name" :class="{ 'opacity-0': !current(article) }" class="block h-full object-cover group-hover:opacity-100 w-full">
+                    <img v-if="article.image" :src="article.image.url" :srcset="article.image.srcset" sizes="(min-width: 1024px) 12.5vw, 100vw" :alt="article.image.name" :class="{ 'lg:opacity-0': !current(article) }" class="block h-full object-cover group-hover:opacity-100 w-full">
                 </div>
                 <div class="mb-1 mt-3 truncate uppercase">{{ article.title[$i18n.locale] }}</div>
                 <div class="mb-4 min-h-[5rem] lg:min-h-[10rem] w-full">{{ article.perex[$i18n.locale] }}</div>
