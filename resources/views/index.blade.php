@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <title>Spoločnosť Jaromíra Krejcara</title>
-        <meta name="description" content="SJK je nezisková organizácia poskytujúce všeobecne prospešné služby, ktorej cieľom je záchrana, obnova a následná ochrana, údržba bývalého Liečebného domu Machnáč v Trenčianskych Tepliciach."/>
+        <meta name="description" content="Zachráňme spolu Liečebný dom Machnáč. Nezisková organizácia Spoločnosť Jaromíra Krejcara, ktorej cieľom je záchrana Liečebného domu Machnáč v Trenčianskych Tepliciach."/>
         <meta property="og:image" content="{{ config('app.url') }}/img/og-image.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
