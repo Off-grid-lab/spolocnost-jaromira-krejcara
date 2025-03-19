@@ -4,7 +4,6 @@
     "dev": "npm run development",
     "development": "mix",
     "hot": "mix watch --hot",
-    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\"",
     "prod": "npm run production",
     "production": "mix --production",
     "watch": "mix watch",
@@ -28,7 +27,6 @@
     "lodash": "^4.17.19",
     "postcss": "^8.3.11",
     "tailwindcss": "^2.2.19",
-    "vue-cli-plugin-i18n": "~2.3.1",
     "vue-loader": "^16.8.3"
   },
   "postcss": {
