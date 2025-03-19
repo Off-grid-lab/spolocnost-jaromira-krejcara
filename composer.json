@@ -17,7 +17,7 @@
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.7",
         "spatie/laravel-medialibrary": "^9.8",
-        "spatie/laravel-medialibrary-pro": "^1.0.0",
+        "spatie/laravel-medialibrary-pro": "1.12.*",
         "spatie/laravel-translatable": "^4.6"
     },
     "require-dev": {
@@ -32,8 +32,8 @@
     },
     "repositories": [
         {
-            "type": "composer",
-            "url": "https://satis.spatie.be"
+            "type": "git",
+            "url": "https://github.com/Off-grid-lab/laravel-medialibrary-pro.git"
         }
     ],
     "autoload": {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9d55c810379fe99eb03ef85f5876f17",
+    "content-hash": "e9a85738b8f5841f1a79674f855fa833",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5466,17 +5466,11 @@
         },
         {
             "name": "spatie/laravel-medialibrary-pro",
-            "version": "1.17.4",
+            "version": "1.12.17",
             "source": {
                 "type": "git",
-                "url": "git@github.com:spatie/laravel-medialibrary-pro.git",
-                "reference": "9632a2cd8bd43c6f74f23283c7fc7ab87679455c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://satis.spatie.be/dist/spatie/laravel-medialibrary-pro/spatie-laravel-medialibrary-pro-9632a2cd8bd43c6f74f23283c7fc7ab87679455c-zip-30f32d.zip",
-                "reference": "9632a2cd8bd43c6f74f23283c7fc7ab87679455c",
-                "shasum": "4d44114b853e70717a07079c90a63c2a214e20fd"
+                "url": "https://github.com/Off-grid-lab/laravel-medialibrary-pro.git",
+                "reference": "0cc34f8ec70da23a78550caaaac7133730e2d71c"
             },
             "require": {
                 "ext-json": "*",
@@ -5540,11 +5534,7 @@
                 "laravel-medialibrary-pro",
                 "spatie"
             ],
-            "support": {
-                "source": "https://github.com/spatie/laravel-medialibrary-pro/tree/1.17.4",
-                "issues": "https://github.com/spatie/laravel-medialibrary-pro/issues"
-            },
-            "time": "2021-10-21T06:28:13+00:00"
+            "time": "2022-02-10T12:39:11+00:00"
         },
         {
             "name": "spatie/laravel-translatable",
@@ -11049,12 +11039,12 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.3|^8.0"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }
